@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+enum SensorType {
+  DUMMYSENSOR = 0;
+  TEMPERATURE = 1;
+  PRESSURE = 2;
+  HUMIDITY = 3;
+  CO2 = 4;
+  VOC = 5;
+  ALTITUDE = 6;
+}
+
+enum Unit {
+  DUMMYUNIT = 0;
+  CELCIUS = 1;
+  HPA = 2; //hectopascals
+  MPS = 3; //meters per second
+  METERS = 4;
+  PERCENT = 5;
+}
+
+message Quantity {
+  float value = 1;
+  Unit unit = 2;
+  float vector = 3;
+}
+
+message Measurement {
+  string sensor = 1;
+  SensorType type = 2;
+  Quantity quantity = 3;
+  int64 time = 4; //int64 because fixed64 will only become more efficient in the year 2283416224
+}
+
+message SensorResponse {
+  bool success = 1;
+  string error = 2;
+  string message = 3;
+  repeated Measurement data = 4;
+}
+

@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+enum ErrorType {
+
+}
+
+enum SensorType {
+  DUMMYSENSOR = 0;
+  TEMPERATURE = 1;
+  PRESSURE = 2;
+  HUMIDITY = 3;
+  CO2 = 4;
+  VOC = 5;
+  ALTITUDE = 6;
+}
+
+enum Unit {
+  DUMMYUNIT = 0;
+  CELCIUS = 1;
+  HPA = 2; //hectopascals
+  MPS = 3; //meters per second
+  METERS = 4;
+  PERCENT = 5;
+  PPM = 6;
+  PPB = 7;
+}
+
+message TVOCQuantity {
+  uint32 value = 1;
+  Unit unit = 2 [default = PPB];
+}
+
+message ECO2Quantity {
+  uint32 value = 1;
+  Unit unit = 2 [default = PPM];
+}
+
+message TemperatureQuantity {
+  double value = 1;
+  Unit unit = 2 [default = CELCUIS];
+}
+
+message Measurement {
+  optional TVOCQuantity = 1;
+  optional ECO2Quantity = 2;
+  optional TemperatureQuantity = 3;
+  int64 time = 4;
+}
+
+message Response {
+  optional repeated Measurement = 1;
+  boolean success = 2;
+  optional ErrorMessage = 3;
+  string message = 4;
+}
+
+// message Request {
+//   string requestType = 1;
+  
+// }

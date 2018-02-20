@@ -37,7 +37,7 @@ message ECO2Quantity {
 
 message TemperatureQuantity {
   double value = 1;
-  Unit unit = 2 [default = CELCUIS];
+  Unit unit = 2 [default = CELCIUS];
 }
 
 message Measurement {

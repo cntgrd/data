@@ -1,52 +1,138 @@
+/*
+ * sensor_data_v2.proto
+ * Provides a medium for sensor<->device<->server communication
+ */
+
+
 syntax = "proto3";
 
 enum ErrorType {
 
 }
 
+/*
+ * SensorType
+ * ---------------
+ * An enumeration of the types of sensors that are available or will be
+ * available for use in the device.
+ *
+ * types:
+ * DUMMYSENSOR
+ *  - unit: n/a
+ * ALTITUDE
+ *  - unit: METERS
+ * ANEMOMETER
+ *  - unit: METERS_PER_SECOND
+ * EQUIVALENT_CARBON_DIOXIDE
+ *  - unit: PARTS_PER_MILLION
+ * HUMIDITY
+ *  - unit: PERCENT
+ * PRESSURE
+ *  - unit: HECTOPASCALS
+ * TEMPERATURE
+ *  - unit: CELSIUS
+ * PARTS_PER_BILLION
+ *  - unit: VOLATILE_ORGANIC_COMPOUNDS
+ */
 enum SensorType {
   DUMMYSENSOR = 0;
-  TEMPERATURE = 1;
-  PRESSURE = 2;
-  HUMIDITY = 3;
-  CO2 = 4;
-  VOC = 5;
-  ALTITUDE = 6;
+  ALTITUDE = 1;
+  ANEMOMETER = 2;
+  EQUIVALENT_CARBON_DIOXIDE = 3;
+  HUMIDITY = 4;
+  PRESSURE = 5;
+  TEMPERATURE = 6;
+  VOLATILE_ORGANIC_COMPOUNDS = 7;
 }
 
+/*
+ * Units
+ * ---------------
+ * An enumeration of the units in which the data is measured.
+ *
+ * types:
+ * DUMMYUNIT
+ *  - use: debugging
+ *  - sensor type: n/a
+ * CELSIUS
+ *  - use: temperature measurements
+ *  - sensor type: TEMPERATURE
+ * HECTOPASCALS - pressure
+ *  - use: pressure measurements
+ *  - sensor type: PRESSURE
+ * METERS
+ *  - use: altitude measurments
+ *  - sensor type: ALTITUDE
+ * METERS_PER_SECOND
+ *  - use: wind speed measurements
+ *  - sensor type: ANEMOMETER
+ * PARTS_PER_BILLION
+ *  - use: volatile organic compounds measurements
+ *  - sensor type: VOLATILE_ORGANIC_COMPOUNDS
+ * PARTS_PER_MILLION
+ *  - use: equivalent carbon dioxide measurements
+ *  - sensor type: EQUIVALENT_CARBON_DIOXIDE
+ * PERCENT
+ *  - use: humidity measurements
+ *  - sensor type: HUMIDITY
+ */
 enum Unit {
   DUMMYUNIT = 0;
-  CELCIUS = 1;
-  HPA = 2; //hectopascals
-  MPS = 3; //meters per second
-  METERS = 4;
-  PERCENT = 5;
-  PPM = 6;
-  PPB = 7;
+  CELSIUS = 1;
+  HECTOPASCALS = 2;
+  METERS = 3;
+  METERS_PER_SECOND = 4;
+  PARTS_PER_BILLION = 5;
+  PARTS_PER_MILLION = 6;
+  PERCENT = 7;
 }
 
-message TVOCQuantity {
+/*
+ * VolatileOrganicCompoundsQuantity 
+ * ---------------
+ * 
+ */
+message VolatileOrganicCompoundsQuantity {
   uint32 value = 1;
-  Unit unit = 2 [default = PPB];
+  Unit unit = 2 [default = PARTS_PER_BILLION];
+  SensorType sensor = 3 [default = VOLATILE_ORGANIC_COMPOUNDS];
 }
 
-message ECO2Quantity {
+/*
+ * EquivalentCarbonDioxideQuantity
+ * ---------------
+ */
+message EquivalentCarbonDioxideQuantity {
   uint32 value = 1;
   Unit unit = 2 [default = PPM];
+  SensorType sensor = 3 [default = CO2];
 }
 
+/*
+ * TemperatureQuantity
+ * ---------------
+ */
 message TemperatureQuantity {
   double value = 1;
-  Unit unit = 2 [default = CELCIUS];
+  Unit unit = 2 [default = CELSIUS];
+  SensorType sensor = 3 [default = TEMPERATURE];
 }
 
+/*
+ * Measurement 
+ * ---------------
+ */
 message Measurement {
-  optional TVOCQuantity = 1;
-  optional ECO2Quantity = 2;
+  optional VolatileOrganicCompoundsQuantity = 1;
+  optional EquivalentCarbonDioxideQuantity = 2;
   optional TemperatureQuantity = 3;
   int64 time = 4;
 }
 
+/*
+ * Response 
+ * ---------------
+ */
 message Response {
   optional repeated Measurement = 1;
   boolean success = 2;
@@ -54,6 +140,10 @@ message Response {
   string message = 4;
 }
 
+/*
+ * 
+ * ---------------
+ */
 // message Request {
 //   string requestType = 1;
   

@@ -6,8 +6,21 @@
 
 syntax = "proto3";
 
-enum ErrorType {
+/*
+ * DataType
+ * ---------------
+ */
+enum DataType {
+  DUMMY_DATA = 0;
+  MEASUREMENT = 1;
+}
 
+/*
+ * ErrorType
+ * ---------------
+ */
+enum ErrorType {
+  DUMMY_ERROR = 0; 
 }
 
 /*
@@ -17,32 +30,32 @@ enum ErrorType {
  * available for use in the device.
  *
  * types:
- * DUMMYSENSOR
- *  - unit: n/a
+ * DUMMY_SENSOR
+ *  - unit(s): n/a
  * ALTITUDE
- *  - unit: METERS
+ *  - unit(s): METERS
  * ANEMOMETER
- *  - unit: METERS_PER_SECOND
+ *  - unit(s): METERS_PER_SECOND, RADIANS
  * EQUIVALENT_CARBON_DIOXIDE
- *  - unit: PARTS_PER_MILLION
+ *  - unit(s): PARTS_PER_MILLION
  * HUMIDITY
- *  - unit: PERCENT
+ *  - unit(s): PERCENT
  * PRESSURE
- *  - unit: HECTOPASCALS
+ *  - unit(s): HECTOPASCALS
  * TEMPERATURE
- *  - unit: CELSIUS
+ *  - unit(s): CELSIUS
  * PARTS_PER_BILLION
- *  - unit: VOLATILE_ORGANIC_COMPOUNDS
+ *  - unit(s): TOTAL_VOLATILE_ORGANIC_COMPOUNDS
  */
 enum SensorType {
-  DUMMYSENSOR = 0;
+  DUMMY_SENSOR = 0;
   ALTITUDE = 1;
   ANEMOMETER = 2;
   EQUIVALENT_CARBON_DIOXIDE = 3;
   HUMIDITY = 4;
   PRESSURE = 5;
   TEMPERATURE = 6;
-  VOLATILE_ORGANIC_COMPOUNDS = 7;
+  TOTAL_VOLATILE_ORGANIC_COMPOUNDS = 7;
 }
 
 /*
@@ -51,7 +64,7 @@ enum SensorType {
  * An enumeration of the units in which the data is measured.
  *
  * types:
- * DUMMYUNIT
+ * DUMMY_UNIT
  *  - use: debugging
  *  - sensor type: n/a
  * CELSIUS
@@ -68,16 +81,19 @@ enum SensorType {
  *  - sensor type: ANEMOMETER
  * PARTS_PER_BILLION
  *  - use: volatile organic compounds measurements
- *  - sensor type: VOLATILE_ORGANIC_COMPOUNDS
+ *  - sensor type: TOTAL_VOLATILE_ORGANIC_COMPOUNDS
  * PARTS_PER_MILLION
  *  - use: equivalent carbon dioxide measurements
  *  - sensor type: EQUIVALENT_CARBON_DIOXIDE
  * PERCENT
  *  - use: humidity measurements
  *  - sensor type: HUMIDITY
+ * RADIANS
+ *  - use: wind direction measurements
+ *  - sensor type: ANEMOMETER
  */
 enum Unit {
-  DUMMYUNIT = 0;
+  DUMMY_UNIT = 0;
   CELSIUS = 1;
   HECTOPASCALS = 2;
   METERS = 3;
@@ -85,17 +101,18 @@ enum Unit {
   PARTS_PER_BILLION = 5;
   PARTS_PER_MILLION = 6;
   PERCENT = 7;
+  RADIANS = 8;
 }
 
 /*
- * VolatileOrganicCompoundsQuantity 
+ * TotalVolatileOrganicCompoundsQuantity 
  * ---------------
  * 
  */
-message VolatileOrganicCompoundsQuantity {
+message TotalVolatileOrganicCompoundsQuantity {
   uint32 value = 1;
   Unit unit = 2 [default = PARTS_PER_BILLION];
-  SensorType sensor = 3 [default = VOLATILE_ORGANIC_COMPOUNDS];
+  SensorType sensor = 3 [default = TOTAL_VOLATILE_ORGANIC_COMPOUNDS];
 }
 
 /*
@@ -104,8 +121,8 @@ message VolatileOrganicCompoundsQuantity {
  */
 message EquivalentCarbonDioxideQuantity {
   uint32 value = 1;
-  Unit unit = 2 [default = PPM];
-  SensorType sensor = 3 [default = CO2];
+  Unit unit = 2 [default = PARTS_PER_MILLION];
+  SensorType sensor = 3 [default = EQUIVALENT_CARBON_DIOXIDE];
 }
 
 /*
@@ -121,12 +138,23 @@ message TemperatureQuantity {
 /*
  * Measurement 
  * ---------------
+ *
+ *
  */
 message Measurement {
-  optional VolatileOrganicCompoundsQuantity = 1;
-  optional EquivalentCarbonDioxideQuantity = 2;
-  optional TemperatureQuantity = 3;
+  TotalVolatileOrganicCompoundsQuantity voc_quantity = 1;
+  EquivalentCarbonDioxideQuantity eco2_quantity = 2;
+  TemperatureQuantity temp_quantity = 3;
   int64 time = 4;
+}
+
+/*
+ * Data 
+ * ---------------
+ */
+message Data {
+  Measurement measurement = 1;
+  DataType data_type = 2;
 }
 
 /*
@@ -134,17 +162,17 @@ message Measurement {
  * ---------------
  */
 message Response {
-  optional repeated Measurement = 1;
-  boolean success = 2;
-  optional ErrorMessage = 3;
+  Data data = 1;
+  bool success = 2;
+  ErrorType error_type = 3;
   string message = 4;
 }
 
 /*
- * 
+ * Request 
  * ---------------
  */
 // message Request {
 //   string requestType = 1;
-  
+//  
 // }

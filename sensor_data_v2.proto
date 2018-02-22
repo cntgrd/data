@@ -11,7 +11,7 @@ syntax = "proto3";
  * ---------------
  */
 enum DataType {
-  DUMMY_DATA = 0;
+  DEFAULT_DATA = 0;
   MEASUREMENT = 1;
 }
 
@@ -20,7 +20,7 @@ enum DataType {
  * ---------------
  */
 enum ErrorType {
-  DUMMY_ERROR = 0; 
+  DEFAULT_ERROR = 0; 
 }
 
 /*
@@ -30,7 +30,7 @@ enum ErrorType {
  * available for use in the device.
  *
  * types:
- * DUMMY_SENSOR
+ * DEFAULT_SENSOR
  *  - unit(s): n/a
  * ALTITUDE
  *  - unit(s): METERS
@@ -48,7 +48,7 @@ enum ErrorType {
  *  - unit(s): TOTAL_VOLATILE_ORGANIC_COMPOUNDS
  */
 enum SensorType {
-  DUMMY_SENSOR = 0;
+  DEFAULT_SENSOR = 0;
   ALTITUDE = 1;
   ANEMOMETER = 2;
   EQUIVALENT_CARBON_DIOXIDE = 3;
@@ -64,7 +64,7 @@ enum SensorType {
  * An enumeration of the units in which the data is measured.
  *
  * types:
- * DUMMY_UNIT
+ * DEFAULT_UNIT
  *  - use: debugging
  *  - sensor type: n/a
  * CELSIUS
@@ -93,7 +93,7 @@ enum SensorType {
  *  - sensor type: ANEMOMETER
  */
 enum Unit {
-  DUMMY_UNIT = 0;
+  DEFAULT_UNIT = 0;
   CELSIUS = 1;
   HECTOPASCALS = 2;
   METERS = 3;

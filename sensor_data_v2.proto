@@ -105,24 +105,13 @@ enum Unit {
 }
 
 /*
- * TotalVolatileOrganicCompoundsQuantity 
- * ---------------
- * 
- */
-message TotalVolatileOrganicCompoundsQuantity {
-  uint32 value = 1;
-  Unit unit = 2 [default = PARTS_PER_BILLION];
-  SensorType sensor = 3 [default = TOTAL_VOLATILE_ORGANIC_COMPOUNDS];
-}
-
-/*
  * EquivalentCarbonDioxideQuantity
  * ---------------
  */
 message EquivalentCarbonDioxideQuantity {
   uint32 value = 1;
-  Unit unit = 2 [default = PARTS_PER_MILLION];
-  SensorType sensor = 3 [default = EQUIVALENT_CARBON_DIOXIDE];
+  Unit unit = 2;
+  SensorType sensor = 3;
 }
 
 /*
@@ -131,8 +120,19 @@ message EquivalentCarbonDioxideQuantity {
  */
 message TemperatureQuantity {
   double value = 1;
-  Unit unit = 2 [default = CELSIUS];
-  SensorType sensor = 3 [default = TEMPERATURE];
+  Unit unit = 2;
+  SensorType sensor = 3;
+}
+
+/*
+ * TotalVolatileOrganicCompoundsQuantity 
+ * ---------------
+ * 
+ */
+message TotalVolatileOrganicCompoundsQuantity {
+  uint32 value = 1;
+  Unit unit = 2;
+  SensorType sensor = 3;
 }
 
 /*

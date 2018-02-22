@@ -9,6 +9,7 @@ syntax = "proto3";
 /*
  * DataType
  * ---------------
+ *
  */
 enum DataType {
   DEFAULT_DATA = 0;
@@ -18,34 +19,24 @@ enum DataType {
 /*
  * ErrorType
  * ---------------
+ *
  */
 enum ErrorType {
   DEFAULT_ERROR = 0; 
+  BAD_REQUEST = 1;
+  FORBIDDEN = 2;
+  INTERNAL_SERVER_ERROR = 3;
+  NOT_FOUND = 4;
+  NOT_IMPLEMENTED = 5;
+  UNAUTHORIZED = 6;
 }
 
 /*
  * SensorType
  * ---------------
- * An enumeration of the types of sensors that are available or will be
- * available for use in the device.
- *
- * types:
- * DEFAULT_SENSOR
- *  - unit(s): n/a
- * ALTITUDE
- *  - unit(s): METERS
- * ANEMOMETER
- *  - unit(s): METERS_PER_SECOND, RADIANS
- * EQUIVALENT_CARBON_DIOXIDE
- *  - unit(s): PARTS_PER_MILLION
- * HUMIDITY
- *  - unit(s): PERCENT
- * PRESSURE
- *  - unit(s): HECTOPASCALS
- * TEMPERATURE
- *  - unit(s): CELSIUS
- * PARTS_PER_BILLION
- *  - unit(s): TOTAL_VOLATILE_ORGANIC_COMPOUNDS
+ * An enumeration of the types of device sensors that are (or will be) available
+ * from which to gather readings.
+ * 
  */
 enum SensorType {
   DEFAULT_SENSOR = 0;
@@ -59,38 +50,9 @@ enum SensorType {
 }
 
 /*
- * Units
+ * Unit
  * ---------------
- * An enumeration of the units in which the data is measured.
- *
- * types:
- * DEFAULT_UNIT
- *  - use: debugging
- *  - sensor type: n/a
- * CELSIUS
- *  - use: temperature measurements
- *  - sensor type: TEMPERATURE
- * HECTOPASCALS - pressure
- *  - use: pressure measurements
- *  - sensor type: PRESSURE
- * METERS
- *  - use: altitude measurments
- *  - sensor type: ALTITUDE
- * METERS_PER_SECOND
- *  - use: wind speed measurements
- *  - sensor type: ANEMOMETER
- * PARTS_PER_BILLION
- *  - use: volatile organic compounds measurements
- *  - sensor type: TOTAL_VOLATILE_ORGANIC_COMPOUNDS
- * PARTS_PER_MILLION
- *  - use: equivalent carbon dioxide measurements
- *  - sensor type: EQUIVALENT_CARBON_DIOXIDE
- * PERCENT
- *  - use: humidity measurements
- *  - sensor type: HUMIDITY
- * RADIANS
- *  - use: wind direction measurements
- *  - sensor type: ANEMOMETER
+ * 
  */
 enum Unit {
   DEFAULT_UNIT = 0;
@@ -105,8 +67,22 @@ enum Unit {
 }
 
 /*
+ * AltitudeQuantity
+ * ---------------
+ * 
+ * Since altitude is measured relative to sea level, measurements can sometimes
+ * be negative. Therefore, the value field is of type unsigned integer, 32-bit.
+ */
+message AltitudeQuantity {
+  sint32 value = 1;
+  Unit unit = 2;
+  SensorType sensor = 3;
+}
+
+/*
  * EquivalentCarbonDioxideQuantity
  * ---------------
+ *
  */
 message EquivalentCarbonDioxideQuantity {
   uint32 value = 1;
@@ -115,8 +91,31 @@ message EquivalentCarbonDioxideQuantity {
 }
 
 /*
+ * HumidityQuantity
+ * ---------------
+ *
+ */
+message HumidityQuantity {
+  uint32 value = 1;
+  Unit unit = 2;
+  SensorType sensor = 3;
+}
+
+/*
+ * PressureQuantity
+ * ---------------
+ *
+ */
+message PressureQuantity{
+  uint32 value = 1;
+  Unit unit = 2;
+  SensorType sensor = 3;
+}
+
+/*
  * TemperatureQuantity
  * ---------------
+ *
  */
 message TemperatureQuantity {
   double value = 1;
@@ -136,21 +135,48 @@ message TotalVolatileOrganicCompoundsQuantity {
 }
 
 /*
+ * WindDirectionQuantity
+ * ---------------
+ *
+ */
+message WindDirectionQuantity {
+  double value = 1;
+  Unit unit = 2;
+  SensorType sensor = 3;
+}
+
+/*
+ * WindSpeedQuantity
+ * ---------------
+ *
+ */
+message WindSpeedQuantity {
+  double value = 1;
+  Unit unit = 2;
+  SensorType sensor = 3;
+}
+
+/*
  * Measurement 
  * ---------------
  *
- *
  */
 message Measurement {
-  TotalVolatileOrganicCompoundsQuantity voc_quantity = 1;
-  EquivalentCarbonDioxideQuantity eco2_quantity = 2;
-  TemperatureQuantity temp_quantity = 3;
+  AltitudeQuantity altitude = 1;
+  EquivalentCarbonDioxideQuantity eco2 = 2;
+  HumidityQuantity humidity = 3;
+  PressureQuantity pressure = 4;
+  TemperatureQuantity temperature = 5;
+  TotalVolatileOrganicCompoundsQuantity voc = 6;
+  WindDirectionQuantity wind_direction = 7;
+  WindSpeedQuantity wind_speed = 8;
   int64 time = 4;
 }
 
 /*
  * Data 
  * ---------------
+ *
  */
 message Data {
   Measurement measurement = 1;
@@ -160,6 +186,7 @@ message Data {
 /*
  * Response 
  * ---------------
+ *
  */
 message Response {
   Data data = 1;
@@ -171,6 +198,7 @@ message Response {
 /*
  * Request 
  * ---------------
+ *
  */
 // message Request {
 //   string requestType = 1;

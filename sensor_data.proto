@@ -170,7 +170,7 @@ message Measurement {
   TotalVolatileOrganicCompoundsQuantity voc = 6;
   WindDirectionQuantity wind_direction = 7;
   WindSpeedQuantity wind_speed = 8;
-  int64 time = 4;
+  int64 time = 9;
 }
 
 /*

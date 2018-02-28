@@ -20,9 +20,11 @@ SRC = ./
 all: python swift
 
 python:
+	mkdir -p python
 	protoc --python_out=python/ $(SRC)*.proto
 
 swift:
+	mkdir -p swift
 	protoc --swift_out=swift/ $(SRC)*.proto
 
 clean:

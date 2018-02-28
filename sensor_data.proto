@@ -7,200 +7,86 @@
 syntax = "proto3";
 
 /*
- * DataType
- * ---------------
- *
+ * Unit types
  */
-enum DataType {
-  DEFAULT_DATA = 0;
-  MEASUREMENT = 1;
+
+message Celsius {
+    double value = 1;    
+}
+
+message Hectopascals {
+    uint32 value = 1;    
+}
+
+message Meters {
+    sint32 value = 1;    
+}
+
+message MetersPerSecond {
+    double value = 1;    
+}
+
+message PartsPerBillion {
+    uint32 value = 1;
+}
+
+message PartsPerMillion {
+    uint32 value = 1; 
+}
+
+message Percent {
+    uint32 value = 1;    
+}
+
+message Radians {
+    double value = 1;    
+}
+
+message Sensor {
+    string uuid = 1;    
+    enum SensorType {
+        DEFAULT = 0;    
+        ALTITUDE = 1;
+        ANEMOMETER = 2;
+        EQUIVALENT_CO2 = 3;
+        HUMIDITY = 4;
+        PRESSURE = 5;
+        TEMPERATURE = 6;
+        TOTAL_VOC = 7;
+    }
+    SensorType sensor_type = 2;
 }
 
 /*
- * ErrorType
- * ---------------
- *
- */
-enum ErrorType {
-  DEFAULT_ERROR = 0; 
-  BAD_REQUEST = 1;
-  FORBIDDEN = 2;
-  INTERNAL_SERVER_ERROR = 3;
-  NOT_FOUND = 4;
-  NOT_IMPLEMENTED = 5;
-  UNAUTHORIZED = 6;
-}
-
-/*
- * SensorType
- * ---------------
- * An enumeration of the types of device sensors that are (or will be) available
- * from which to gather readings.
- * 
- */
-enum SensorType {
-  DEFAULT_SENSOR = 0;
-  ALTITUDE = 1;
-  ANEMOMETER = 2;
-  EQUIVALENT_CARBON_DIOXIDE = 3;
-  HUMIDITY = 4;
-  PRESSURE = 5;
-  TEMPERATURE = 6;
-  TOTAL_VOLATILE_ORGANIC_COMPOUNDS = 7;
-}
-
-/*
- * Unit
- * ---------------
- * 
- */
-enum Unit {
-  DEFAULT_UNIT = 0;
-  CELSIUS = 1;
-  HECTOPASCALS = 2;
-  METERS = 3;
-  METERS_PER_SECOND = 4;
-  PARTS_PER_BILLION = 5;
-  PARTS_PER_MILLION = 6;
-  PERCENT = 7;
-  RADIANS = 8;
-}
-
-/*
- * AltitudeQuantity
- * ---------------
- * 
- * Since altitude is measured relative to sea level, measurements can sometimes
- * be negative. Therefore, the value field is of type unsigned integer, 32-bit.
- */
-message AltitudeQuantity {
-  sint32 value = 1;
-  Unit unit = 2;
-  SensorType sensor = 3;
-}
-
-/*
- * EquivalentCarbonDioxideQuantity
- * ---------------
- *
- */
-message EquivalentCarbonDioxideQuantity {
-  uint32 value = 1;
-  Unit unit = 2;
-  SensorType sensor = 3;
-}
-
-/*
- * HumidityQuantity
- * ---------------
- *
- */
-message HumidityQuantity {
-  uint32 value = 1;
-  Unit unit = 2;
-  SensorType sensor = 3;
-}
-
-/*
- * PressureQuantity
- * ---------------
- *
- */
-message PressureQuantity{
-  uint32 value = 1;
-  Unit unit = 2;
-  SensorType sensor = 3;
-}
-
-/*
- * TemperatureQuantity
- * ---------------
- *
- */
-message TemperatureQuantity {
-  double value = 1;
-  Unit unit = 2;
-  SensorType sensor = 3;
-}
-
-/*
- * TotalVolatileOrganicCompoundsQuantity 
- * ---------------
- * 
- */
-message TotalVolatileOrganicCompoundsQuantity {
-  uint32 value = 1;
-  Unit unit = 2;
-  SensorType sensor = 3;
-}
-
-/*
- * WindDirectionQuantity
- * ---------------
- *
- */
-message WindDirectionQuantity {
-  double value = 1;
-  Unit unit = 2;
-  SensorType sensor = 3;
-}
-
-/*
- * WindSpeedQuantity
- * ---------------
- *
- */
-message WindSpeedQuantity {
-  double value = 1;
-  Unit unit = 2;
-  SensorType sensor = 3;
-}
-
-/*
- * Measurement 
- * ---------------
- *
+ * Measurement
  */
 message Measurement {
-  AltitudeQuantity altitude = 1;
-  EquivalentCarbonDioxideQuantity eco2 = 2;
-  HumidityQuantity humidity = 3;
-  PressureQuantity pressure = 4;
-  TemperatureQuantity temperature = 5;
-  TotalVolatileOrganicCompoundsQuantity voc = 6;
-  WindDirectionQuantity wind_direction = 7;
-  WindSpeedQuantity wind_speed = 8;
-  int64 time = 9;
+    uint64 time = 1;
+    oneof measurement {
+        Celsius temperature = 2;
+        Hectopascals pressure = 3;
+        Meters altitude = 4;
+        MetersPerSecond wind_speed = 5;
+        PartsPerBillion total_vocs = 6;
+        PartsPerMillion equivalent_co2 = 7;
+        Percent humidity = 8;
+        Radians wind_direction = 9;
+    }
+    Sensor sensor = 10;
 }
 
-/*
- * Data 
- * ---------------
- *
- */
-message Data {
-  Measurement measurement = 1;
-  DataType data_type = 2;
-}
+///*
+// * ErrorType
+// * ---------------
+// *
+// */
+//enum ErrorType {
+//  DEFAULT_ERROR = 0; 
+//  BAD_REQUEST = 1;
+//  FORBIDDEN = 2;
+//  INTERNAL_SERVER_ERROR = 3;
+//  NOT_FOUND = 4;
+//  NOT_IMPLEMENTED = 5;
+//  UNAUTHORIZED = 6;
+//}
 
-/*
- * Response 
- * ---------------
- *
- */
-message Response {
-  Data data = 1;
-  bool success = 2;
-  ErrorType error_type = 3;
-  string message = 4;
-}
-
-/*
- * Request 
- * ---------------
- *
- */
-// message Request {
-//   string requestType = 1;
-//  
-// }

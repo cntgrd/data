@@ -3,7 +3,6 @@
 
 import sys
 _b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
-from google.protobuf.internal import enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
@@ -20,83 +19,19 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='sensor_data.proto',
   package='',
   syntax='proto3',
-  serialized_pb=_b('\n\x11sensor_data.proto\"S\n\x10\x41ltitudeQuantity\x12\r\n\x05value\x18\x01 \x01(\x11\x12\x13\n\x04unit\x18\x02 \x01(\x0e\x32\x05.Unit\x12\x1b\n\x06sensor\x18\x03 \x01(\x0e\x32\x0b.SensorType\"b\n\x1f\x45quivalentCarbonDioxideQuantity\x12\r\n\x05value\x18\x01 \x01(\r\x12\x13\n\x04unit\x18\x02 \x01(\x0e\x32\x05.Unit\x12\x1b\n\x06sensor\x18\x03 \x01(\x0e\x32\x0b.SensorType\"S\n\x10HumidityQuantity\x12\r\n\x05value\x18\x01 \x01(\r\x12\x13\n\x04unit\x18\x02 \x01(\x0e\x32\x05.Unit\x12\x1b\n\x06sensor\x18\x03 \x01(\x0e\x32\x0b.SensorType\"S\n\x10PressureQuantity\x12\r\n\x05value\x18\x01 \x01(\r\x12\x13\n\x04unit\x18\x02 \x01(\x0e\x32\x05.Unit\x12\x1b\n\x06sensor\x18\x03 \x01(\x0e\x32\x0b.SensorType\"V\n\x13TemperatureQuantity\x12\r\n\x05value\x18\x01 \x01(\x01\x12\x13\n\x04unit\x18\x02 \x01(\x0e\x32\x05.Unit\x12\x1b\n\x06sensor\x18\x03 \x01(\x0e\x32\x0b.SensorType\"h\n%TotalVolatileOrganicCompoundsQuantity\x12\r\n\x05value\x18\x01 \x01(\r\x12\x13\n\x04unit\x18\x02 \x01(\x0e\x32\x05.Unit\x12\x1b\n\x06sensor\x18\x03 \x01(\x0e\x32\x0b.SensorType\"X\n\x15WindDirectionQuantity\x12\r\n\x05value\x18\x01 \x01(\x01\x12\x13\n\x04unit\x18\x02 \x01(\x0e\x32\x05.Unit\x12\x1b\n\x06sensor\x18\x03 \x01(\x0e\x32\x0b.SensorType\"T\n\x11WindSpeedQuantity\x12\r\n\x05value\x18\x01 \x01(\x01\x12\x13\n\x04unit\x18\x02 \x01(\x0e\x32\x05.Unit\x12\x1b\n\x06sensor\x18\x03 \x01(\x0e\x32\x0b.SensorType\"\xf2\x02\n\x0bMeasurement\x12#\n\x08\x61ltitude\x18\x01 \x01(\x0b\x32\x11.AltitudeQuantity\x12.\n\x04\x65\x63o2\x18\x02 \x01(\x0b\x32 .EquivalentCarbonDioxideQuantity\x12#\n\x08humidity\x18\x03 \x01(\x0b\x32\x11.HumidityQuantity\x12#\n\x08pressure\x18\x04 \x01(\x0b\x32\x11.PressureQuantity\x12)\n\x0btemperature\x18\x05 \x01(\x0b\x32\x14.TemperatureQuantity\x12\x33\n\x03voc\x18\x06 \x01(\x0b\x32&.TotalVolatileOrganicCompoundsQuantity\x12.\n\x0ewind_direction\x18\x07 \x01(\x0b\x32\x16.WindDirectionQuantity\x12&\n\nwind_speed\x18\x08 \x01(\x0b\x32\x12.WindSpeedQuantity\x12\x0c\n\x04time\x18\t \x01(\x03\"G\n\x04\x44\x61ta\x12!\n\x0bmeasurement\x18\x01 \x01(\x0b\x32\x0c.Measurement\x12\x1c\n\tdata_type\x18\x02 \x01(\x0e\x32\t.DataType\"a\n\x08Response\x12\x13\n\x04\x64\x61ta\x18\x01 \x01(\x0b\x32\x05.Data\x12\x0f\n\x07success\x18\x02 \x01(\x08\x12\x1e\n\nerror_type\x18\x03 \x01(\x0e\x32\n.ErrorType\x12\x0f\n\x07message\x18\x04 \x01(\t*-\n\x08\x44\x61taType\x12\x10\n\x0c\x44\x45\x46\x41ULT_DATA\x10\x00\x12\x0f\n\x0bMEASUREMENT\x10\x01*\x8f\x01\n\tErrorType\x12\x11\n\rDEFAULT_ERROR\x10\x00\x12\x0f\n\x0b\x42\x41\x44_REQUEST\x10\x01\x12\r\n\tFORBIDDEN\x10\x02\x12\x19\n\x15INTERNAL_SERVER_ERROR\x10\x03\x12\r\n\tNOT_FOUND\x10\x04\x12\x13\n\x0fNOT_IMPLEMENTED\x10\x05\x12\x10\n\x0cUNAUTHORIZED\x10\x06*\xb0\x01\n\nSensorType\x12\x12\n\x0e\x44\x45\x46\x41ULT_SENSOR\x10\x00\x12\x0c\n\x08\x41LTITUDE\x10\x01\x12\x0e\n\nANEMOMETER\x10\x02\x12\x1d\n\x19\x45QUIVALENT_CARBON_DIOXIDE\x10\x03\x12\x0c\n\x08HUMIDITY\x10\x04\x12\x0c\n\x08PRESSURE\x10\x05\x12\x0f\n\x0bTEMPERATURE\x10\x06\x12$\n TOTAL_VOLATILE_ORGANIC_COMPOUNDS\x10\x07*\xa2\x01\n\x04Unit\x12\x10\n\x0c\x44\x45\x46\x41ULT_UNIT\x10\x00\x12\x0b\n\x07\x43\x45LSIUS\x10\x01\x12\x10\n\x0cHECTOPASCALS\x10\x02\x12\n\n\x06METERS\x10\x03\x12\x15\n\x11METERS_PER_SECOND\x10\x04\x12\x15\n\x11PARTS_PER_BILLION\x10\x05\x12\x15\n\x11PARTS_PER_MILLION\x10\x06\x12\x0b\n\x07PERCENT\x10\x07\x12\x0b\n\x07RADIANS\x10\x08\x62\x06proto3')
+  serialized_pb=_b('\n\x11sensor_data.proto\"\x18\n\x07\x43\x65lsius\x12\r\n\x05value\x18\x01 \x01(\x01\"\x1d\n\x0cHectopascals\x12\r\n\x05value\x18\x01 \x01(\r\"\x17\n\x06Meters\x12\r\n\x05value\x18\x01 \x01(\x11\" \n\x0fMetersPerSecond\x12\r\n\x05value\x18\x01 \x01(\x01\" \n\x0fPartsPerBillion\x12\r\n\x05value\x18\x01 \x01(\r\" \n\x0fPartsPerMillion\x12\r\n\x05value\x18\x01 \x01(\r\"\x18\n\x07Percent\x12\r\n\x05value\x18\x01 \x01(\r\"\x18\n\x07Radians\x12\r\n\x05value\x18\x01 \x01(\x01\"\xc9\x01\n\x06Sensor\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\'\n\x0bsensor_type\x18\x02 \x01(\x0e\x32\x12.Sensor.SensorType\"\x87\x01\n\nSensorType\x12\x0b\n\x07\x44\x45\x46\x41ULT\x10\x00\x12\x0c\n\x08\x41LTITUDE\x10\x01\x12\x0e\n\nANEMOMETER\x10\x02\x12\x12\n\x0e\x45QUIVALENT_CO2\x10\x03\x12\x0c\n\x08HUMIDITY\x10\x04\x12\x0c\n\x08PRESSURE\x10\x05\x12\x0f\n\x0bTEMPERATURE\x10\x06\x12\r\n\tTOTAL_VOC\x10\x07\"\xe2\x02\n\x0bMeasurement\x12\x0c\n\x04time\x18\x01 \x01(\x04\x12\x1f\n\x0btemperature\x18\x02 \x01(\x0b\x32\x08.CelsiusH\x00\x12!\n\x08pressure\x18\x03 \x01(\x0b\x32\r.HectopascalsH\x00\x12\x1b\n\x08\x61ltitude\x18\x04 \x01(\x0b\x32\x07.MetersH\x00\x12&\n\nwind_speed\x18\x05 \x01(\x0b\x32\x10.MetersPerSecondH\x00\x12&\n\ntotal_vocs\x18\x06 \x01(\x0b\x32\x10.PartsPerBillionH\x00\x12*\n\x0e\x65quivalent_co2\x18\x07 \x01(\x0b\x32\x10.PartsPerMillionH\x00\x12\x1c\n\x08humidity\x18\x08 \x01(\x0b\x32\x08.PercentH\x00\x12\"\n\x0ewind_direction\x18\t \x01(\x0b\x32\x08.RadiansH\x00\x12\x17\n\x06sensor\x18\n \x01(\x0b\x32\x07.SensorB\r\n\x0bmeasurementb\x06proto3')
 )
 
-_DATATYPE = _descriptor.EnumDescriptor(
-  name='DataType',
-  full_name='DataType',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='DEFAULT_DATA', index=0, number=0,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='MEASUREMENT', index=1, number=1,
-      options=None,
-      type=None),
-  ],
-  containing_type=None,
-  options=None,
-  serialized_start=1291,
-  serialized_end=1336,
-)
-_sym_db.RegisterEnumDescriptor(_DATATYPE)
 
-DataType = enum_type_wrapper.EnumTypeWrapper(_DATATYPE)
-_ERRORTYPE = _descriptor.EnumDescriptor(
-  name='ErrorType',
-  full_name='ErrorType',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='DEFAULT_ERROR', index=0, number=0,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='BAD_REQUEST', index=1, number=1,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='FORBIDDEN', index=2, number=2,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='INTERNAL_SERVER_ERROR', index=3, number=3,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='NOT_FOUND', index=4, number=4,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='NOT_IMPLEMENTED', index=5, number=5,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='UNAUTHORIZED', index=6, number=6,
-      options=None,
-      type=None),
-  ],
-  containing_type=None,
-  options=None,
-  serialized_start=1339,
-  serialized_end=1482,
-)
-_sym_db.RegisterEnumDescriptor(_ERRORTYPE)
 
-ErrorType = enum_type_wrapper.EnumTypeWrapper(_ERRORTYPE)
-_SENSORTYPE = _descriptor.EnumDescriptor(
+_SENSOR_SENSORTYPE = _descriptor.EnumDescriptor(
   name='SensorType',
-  full_name='SensorType',
+  full_name='Sensor.SensorType',
   filename=None,
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='DEFAULT_SENSOR', index=0, number=0,
+      name='DEFAULT', index=0, number=0,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
@@ -108,7 +43,7 @@ _SENSORTYPE = _descriptor.EnumDescriptor(
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='EQUIVALENT_CARBON_DIOXIDE', index=3, number=3,
+      name='EQUIVALENT_CO2', index=3, number=3,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
@@ -124,123 +59,29 @@ _SENSORTYPE = _descriptor.EnumDescriptor(
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='TOTAL_VOLATILE_ORGANIC_COMPOUNDS', index=7, number=7,
+      name='TOTAL_VOC', index=7, number=7,
       options=None,
       type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=1485,
-  serialized_end=1661,
+  serialized_start=324,
+  serialized_end=459,
 )
-_sym_db.RegisterEnumDescriptor(_SENSORTYPE)
-
-SensorType = enum_type_wrapper.EnumTypeWrapper(_SENSORTYPE)
-_UNIT = _descriptor.EnumDescriptor(
-  name='Unit',
-  full_name='Unit',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='DEFAULT_UNIT', index=0, number=0,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CELSIUS', index=1, number=1,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='HECTOPASCALS', index=2, number=2,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='METERS', index=3, number=3,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='METERS_PER_SECOND', index=4, number=4,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='PARTS_PER_BILLION', index=5, number=5,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='PARTS_PER_MILLION', index=6, number=6,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='PERCENT', index=7, number=7,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='RADIANS', index=8, number=8,
-      options=None,
-      type=None),
-  ],
-  containing_type=None,
-  options=None,
-  serialized_start=1664,
-  serialized_end=1826,
-)
-_sym_db.RegisterEnumDescriptor(_UNIT)
-
-Unit = enum_type_wrapper.EnumTypeWrapper(_UNIT)
-DEFAULT_DATA = 0
-MEASUREMENT = 1
-DEFAULT_ERROR = 0
-BAD_REQUEST = 1
-FORBIDDEN = 2
-INTERNAL_SERVER_ERROR = 3
-NOT_FOUND = 4
-NOT_IMPLEMENTED = 5
-UNAUTHORIZED = 6
-DEFAULT_SENSOR = 0
-ALTITUDE = 1
-ANEMOMETER = 2
-EQUIVALENT_CARBON_DIOXIDE = 3
-HUMIDITY = 4
-PRESSURE = 5
-TEMPERATURE = 6
-TOTAL_VOLATILE_ORGANIC_COMPOUNDS = 7
-DEFAULT_UNIT = 0
-CELSIUS = 1
-HECTOPASCALS = 2
-METERS = 3
-METERS_PER_SECOND = 4
-PARTS_PER_BILLION = 5
-PARTS_PER_MILLION = 6
-PERCENT = 7
-RADIANS = 8
+_sym_db.RegisterEnumDescriptor(_SENSOR_SENSORTYPE)
 
 
-
-_ALTITUDEQUANTITY = _descriptor.Descriptor(
-  name='AltitudeQuantity',
-  full_name='AltitudeQuantity',
+_CELSIUS = _descriptor.Descriptor(
+  name='Celsius',
+  full_name='Celsius',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='value', full_name='AltitudeQuantity.value', index=0,
-      number=1, type=17, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='unit', full_name='AltitudeQuantity.unit', index=1,
-      number=2, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='sensor', full_name='AltitudeQuantity.sensor', index=2,
-      number=3, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
+      name='value', full_name='Celsius.value', index=0,
+      number=1, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
@@ -257,34 +98,20 @@ _ALTITUDEQUANTITY = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=21,
-  serialized_end=104,
+  serialized_end=45,
 )
 
 
-_EQUIVALENTCARBONDIOXIDEQUANTITY = _descriptor.Descriptor(
-  name='EquivalentCarbonDioxideQuantity',
-  full_name='EquivalentCarbonDioxideQuantity',
+_HECTOPASCALS = _descriptor.Descriptor(
+  name='Hectopascals',
+  full_name='Hectopascals',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='value', full_name='EquivalentCarbonDioxideQuantity.value', index=0,
+      name='value', full_name='Hectopascals.value', index=0,
       number=1, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='unit', full_name='EquivalentCarbonDioxideQuantity.unit', index=1,
-      number=2, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='sensor', full_name='EquivalentCarbonDioxideQuantity.sensor', index=2,
-      number=3, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -301,35 +128,21 @@ _EQUIVALENTCARBONDIOXIDEQUANTITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=106,
-  serialized_end=204,
+  serialized_start=47,
+  serialized_end=76,
 )
 
 
-_HUMIDITYQUANTITY = _descriptor.Descriptor(
-  name='HumidityQuantity',
-  full_name='HumidityQuantity',
+_METERS = _descriptor.Descriptor(
+  name='Meters',
+  full_name='Meters',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='value', full_name='HumidityQuantity.value', index=0,
-      number=1, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='unit', full_name='HumidityQuantity.unit', index=1,
-      number=2, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='sensor', full_name='HumidityQuantity.sensor', index=2,
-      number=3, type=14, cpp_type=8, label=1,
+      name='value', full_name='Meters.value', index=0,
+      number=1, type=17, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -346,84 +159,25 @@ _HUMIDITYQUANTITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=206,
-  serialized_end=289,
+  serialized_start=78,
+  serialized_end=101,
 )
 
 
-_PRESSUREQUANTITY = _descriptor.Descriptor(
-  name='PressureQuantity',
-  full_name='PressureQuantity',
+_METERSPERSECOND = _descriptor.Descriptor(
+  name='MetersPerSecond',
+  full_name='MetersPerSecond',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='value', full_name='PressureQuantity.value', index=0,
-      number=1, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='unit', full_name='PressureQuantity.unit', index=1,
-      number=2, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='sensor', full_name='PressureQuantity.sensor', index=2,
-      number=3, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=291,
-  serialized_end=374,
-)
-
-
-_TEMPERATUREQUANTITY = _descriptor.Descriptor(
-  name='TemperatureQuantity',
-  full_name='TemperatureQuantity',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='value', full_name='TemperatureQuantity.value', index=0,
+      name='value', full_name='MetersPerSecond.value', index=0,
       number=1, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='unit', full_name='TemperatureQuantity.unit', index=1,
-      number=2, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='sensor', full_name='TemperatureQuantity.sensor', index=2,
-      number=3, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -436,39 +190,25 @@ _TEMPERATUREQUANTITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=376,
-  serialized_end=462,
+  serialized_start=103,
+  serialized_end=135,
 )
 
 
-_TOTALVOLATILEORGANICCOMPOUNDSQUANTITY = _descriptor.Descriptor(
-  name='TotalVolatileOrganicCompoundsQuantity',
-  full_name='TotalVolatileOrganicCompoundsQuantity',
+_PARTSPERBILLION = _descriptor.Descriptor(
+  name='PartsPerBillion',
+  full_name='PartsPerBillion',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='value', full_name='TotalVolatileOrganicCompoundsQuantity.value', index=0,
+      name='value', full_name='PartsPerBillion.value', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='unit', full_name='TotalVolatileOrganicCompoundsQuantity.unit', index=1,
-      number=2, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='sensor', full_name='TotalVolatileOrganicCompoundsQuantity.sensor', index=2,
-      number=3, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -481,35 +221,21 @@ _TOTALVOLATILEORGANICCOMPOUNDSQUANTITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=464,
-  serialized_end=568,
+  serialized_start=137,
+  serialized_end=169,
 )
 
 
-_WINDDIRECTIONQUANTITY = _descriptor.Descriptor(
-  name='WindDirectionQuantity',
-  full_name='WindDirectionQuantity',
+_PARTSPERMILLION = _descriptor.Descriptor(
+  name='PartsPerMillion',
+  full_name='PartsPerMillion',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='value', full_name='WindDirectionQuantity.value', index=0,
-      number=1, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='unit', full_name='WindDirectionQuantity.unit', index=1,
-      number=2, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='sensor', full_name='WindDirectionQuantity.sensor', index=2,
-      number=3, type=14, cpp_type=8, label=1,
+      name='value', full_name='PartsPerMillion.value', index=0,
+      number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -526,35 +252,21 @@ _WINDDIRECTIONQUANTITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=570,
-  serialized_end=658,
+  serialized_start=171,
+  serialized_end=203,
 )
 
 
-_WINDSPEEDQUANTITY = _descriptor.Descriptor(
-  name='WindSpeedQuantity',
-  full_name='WindSpeedQuantity',
+_PERCENT = _descriptor.Descriptor(
+  name='Percent',
+  full_name='Percent',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='value', full_name='WindSpeedQuantity.value', index=0,
-      number=1, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='unit', full_name='WindSpeedQuantity.unit', index=1,
-      number=2, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='sensor', full_name='WindSpeedQuantity.sensor', index=2,
-      number=3, type=14, cpp_type=8, label=1,
+      name='value', full_name='Percent.value', index=0,
+      number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -571,8 +283,78 @@ _WINDSPEEDQUANTITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=660,
-  serialized_end=744,
+  serialized_start=205,
+  serialized_end=229,
+)
+
+
+_RADIANS = _descriptor.Descriptor(
+  name='Radians',
+  full_name='Radians',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='Radians.value', index=0,
+      number=1, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=231,
+  serialized_end=255,
+)
+
+
+_SENSOR = _descriptor.Descriptor(
+  name='Sensor',
+  full_name='Sensor',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='uuid', full_name='Sensor.uuid', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='sensor_type', full_name='Sensor.sensor_type', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _SENSOR_SENSORTYPE,
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=258,
+  serialized_end=459,
 )
 
 
@@ -584,158 +366,75 @@ _MEASUREMENT = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='altitude', full_name='Measurement.altitude', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='time', full_name='Measurement.time', index=0,
+      number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='eco2', full_name='Measurement.eco2', index=1,
+      name='temperature', full_name='Measurement.temperature', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='humidity', full_name='Measurement.humidity', index=2,
+      name='pressure', full_name='Measurement.pressure', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='pressure', full_name='Measurement.pressure', index=3,
+      name='altitude', full_name='Measurement.altitude', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='temperature', full_name='Measurement.temperature', index=4,
+      name='wind_speed', full_name='Measurement.wind_speed', index=4,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='voc', full_name='Measurement.voc', index=5,
+      name='total_vocs', full_name='Measurement.total_vocs', index=5,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='wind_direction', full_name='Measurement.wind_direction', index=6,
+      name='equivalent_co2', full_name='Measurement.equivalent_co2', index=6,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='wind_speed', full_name='Measurement.wind_speed', index=7,
+      name='humidity', full_name='Measurement.humidity', index=7,
       number=8, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='time', full_name='Measurement.time', index=8,
-      number=9, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=747,
-  serialized_end=1117,
-)
-
-
-_DATA = _descriptor.Descriptor(
-  name='Data',
-  full_name='Data',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='measurement', full_name='Data.measurement', index=0,
-      number=1, type=11, cpp_type=10, label=1,
+      name='wind_direction', full_name='Measurement.wind_direction', index=8,
+      number=9, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='data_type', full_name='Data.data_type', index=1,
-      number=2, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1119,
-  serialized_end=1190,
-)
-
-
-_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='data', full_name='Response.data', index=0,
-      number=1, type=11, cpp_type=10, label=1,
+      name='sensor', full_name='Measurement.sensor', index=9,
+      number=10, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='success', full_name='Response.success', index=1,
-      number=2, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='error_type', full_name='Response.error_type', index=2,
-      number=3, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='message', full_name='Response.message', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -747,111 +446,123 @@ _RESPONSE = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
+    _descriptor.OneofDescriptor(
+      name='measurement', full_name='Measurement.measurement',
+      index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=1192,
-  serialized_end=1289,
+  serialized_start=462,
+  serialized_end=816,
 )
 
-_ALTITUDEQUANTITY.fields_by_name['unit'].enum_type = _UNIT
-_ALTITUDEQUANTITY.fields_by_name['sensor'].enum_type = _SENSORTYPE
-_EQUIVALENTCARBONDIOXIDEQUANTITY.fields_by_name['unit'].enum_type = _UNIT
-_EQUIVALENTCARBONDIOXIDEQUANTITY.fields_by_name['sensor'].enum_type = _SENSORTYPE
-_HUMIDITYQUANTITY.fields_by_name['unit'].enum_type = _UNIT
-_HUMIDITYQUANTITY.fields_by_name['sensor'].enum_type = _SENSORTYPE
-_PRESSUREQUANTITY.fields_by_name['unit'].enum_type = _UNIT
-_PRESSUREQUANTITY.fields_by_name['sensor'].enum_type = _SENSORTYPE
-_TEMPERATUREQUANTITY.fields_by_name['unit'].enum_type = _UNIT
-_TEMPERATUREQUANTITY.fields_by_name['sensor'].enum_type = _SENSORTYPE
-_TOTALVOLATILEORGANICCOMPOUNDSQUANTITY.fields_by_name['unit'].enum_type = _UNIT
-_TOTALVOLATILEORGANICCOMPOUNDSQUANTITY.fields_by_name['sensor'].enum_type = _SENSORTYPE
-_WINDDIRECTIONQUANTITY.fields_by_name['unit'].enum_type = _UNIT
-_WINDDIRECTIONQUANTITY.fields_by_name['sensor'].enum_type = _SENSORTYPE
-_WINDSPEEDQUANTITY.fields_by_name['unit'].enum_type = _UNIT
-_WINDSPEEDQUANTITY.fields_by_name['sensor'].enum_type = _SENSORTYPE
-_MEASUREMENT.fields_by_name['altitude'].message_type = _ALTITUDEQUANTITY
-_MEASUREMENT.fields_by_name['eco2'].message_type = _EQUIVALENTCARBONDIOXIDEQUANTITY
-_MEASUREMENT.fields_by_name['humidity'].message_type = _HUMIDITYQUANTITY
-_MEASUREMENT.fields_by_name['pressure'].message_type = _PRESSUREQUANTITY
-_MEASUREMENT.fields_by_name['temperature'].message_type = _TEMPERATUREQUANTITY
-_MEASUREMENT.fields_by_name['voc'].message_type = _TOTALVOLATILEORGANICCOMPOUNDSQUANTITY
-_MEASUREMENT.fields_by_name['wind_direction'].message_type = _WINDDIRECTIONQUANTITY
-_MEASUREMENT.fields_by_name['wind_speed'].message_type = _WINDSPEEDQUANTITY
-_DATA.fields_by_name['measurement'].message_type = _MEASUREMENT
-_DATA.fields_by_name['data_type'].enum_type = _DATATYPE
-_RESPONSE.fields_by_name['data'].message_type = _DATA
-_RESPONSE.fields_by_name['error_type'].enum_type = _ERRORTYPE
-DESCRIPTOR.message_types_by_name['AltitudeQuantity'] = _ALTITUDEQUANTITY
-DESCRIPTOR.message_types_by_name['EquivalentCarbonDioxideQuantity'] = _EQUIVALENTCARBONDIOXIDEQUANTITY
-DESCRIPTOR.message_types_by_name['HumidityQuantity'] = _HUMIDITYQUANTITY
-DESCRIPTOR.message_types_by_name['PressureQuantity'] = _PRESSUREQUANTITY
-DESCRIPTOR.message_types_by_name['TemperatureQuantity'] = _TEMPERATUREQUANTITY
-DESCRIPTOR.message_types_by_name['TotalVolatileOrganicCompoundsQuantity'] = _TOTALVOLATILEORGANICCOMPOUNDSQUANTITY
-DESCRIPTOR.message_types_by_name['WindDirectionQuantity'] = _WINDDIRECTIONQUANTITY
-DESCRIPTOR.message_types_by_name['WindSpeedQuantity'] = _WINDSPEEDQUANTITY
+_SENSOR.fields_by_name['sensor_type'].enum_type = _SENSOR_SENSORTYPE
+_SENSOR_SENSORTYPE.containing_type = _SENSOR
+_MEASUREMENT.fields_by_name['temperature'].message_type = _CELSIUS
+_MEASUREMENT.fields_by_name['pressure'].message_type = _HECTOPASCALS
+_MEASUREMENT.fields_by_name['altitude'].message_type = _METERS
+_MEASUREMENT.fields_by_name['wind_speed'].message_type = _METERSPERSECOND
+_MEASUREMENT.fields_by_name['total_vocs'].message_type = _PARTSPERBILLION
+_MEASUREMENT.fields_by_name['equivalent_co2'].message_type = _PARTSPERMILLION
+_MEASUREMENT.fields_by_name['humidity'].message_type = _PERCENT
+_MEASUREMENT.fields_by_name['wind_direction'].message_type = _RADIANS
+_MEASUREMENT.fields_by_name['sensor'].message_type = _SENSOR
+_MEASUREMENT.oneofs_by_name['measurement'].fields.append(
+  _MEASUREMENT.fields_by_name['temperature'])
+_MEASUREMENT.fields_by_name['temperature'].containing_oneof = _MEASUREMENT.oneofs_by_name['measurement']
+_MEASUREMENT.oneofs_by_name['measurement'].fields.append(
+  _MEASUREMENT.fields_by_name['pressure'])
+_MEASUREMENT.fields_by_name['pressure'].containing_oneof = _MEASUREMENT.oneofs_by_name['measurement']
+_MEASUREMENT.oneofs_by_name['measurement'].fields.append(
+  _MEASUREMENT.fields_by_name['altitude'])
+_MEASUREMENT.fields_by_name['altitude'].containing_oneof = _MEASUREMENT.oneofs_by_name['measurement']
+_MEASUREMENT.oneofs_by_name['measurement'].fields.append(
+  _MEASUREMENT.fields_by_name['wind_speed'])
+_MEASUREMENT.fields_by_name['wind_speed'].containing_oneof = _MEASUREMENT.oneofs_by_name['measurement']
+_MEASUREMENT.oneofs_by_name['measurement'].fields.append(
+  _MEASUREMENT.fields_by_name['total_vocs'])
+_MEASUREMENT.fields_by_name['total_vocs'].containing_oneof = _MEASUREMENT.oneofs_by_name['measurement']
+_MEASUREMENT.oneofs_by_name['measurement'].fields.append(
+  _MEASUREMENT.fields_by_name['equivalent_co2'])
+_MEASUREMENT.fields_by_name['equivalent_co2'].containing_oneof = _MEASUREMENT.oneofs_by_name['measurement']
+_MEASUREMENT.oneofs_by_name['measurement'].fields.append(
+  _MEASUREMENT.fields_by_name['humidity'])
+_MEASUREMENT.fields_by_name['humidity'].containing_oneof = _MEASUREMENT.oneofs_by_name['measurement']
+_MEASUREMENT.oneofs_by_name['measurement'].fields.append(
+  _MEASUREMENT.fields_by_name['wind_direction'])
+_MEASUREMENT.fields_by_name['wind_direction'].containing_oneof = _MEASUREMENT.oneofs_by_name['measurement']
+DESCRIPTOR.message_types_by_name['Celsius'] = _CELSIUS
+DESCRIPTOR.message_types_by_name['Hectopascals'] = _HECTOPASCALS
+DESCRIPTOR.message_types_by_name['Meters'] = _METERS
+DESCRIPTOR.message_types_by_name['MetersPerSecond'] = _METERSPERSECOND
+DESCRIPTOR.message_types_by_name['PartsPerBillion'] = _PARTSPERBILLION
+DESCRIPTOR.message_types_by_name['PartsPerMillion'] = _PARTSPERMILLION
+DESCRIPTOR.message_types_by_name['Percent'] = _PERCENT
+DESCRIPTOR.message_types_by_name['Radians'] = _RADIANS
+DESCRIPTOR.message_types_by_name['Sensor'] = _SENSOR
 DESCRIPTOR.message_types_by_name['Measurement'] = _MEASUREMENT
-DESCRIPTOR.message_types_by_name['Data'] = _DATA
-DESCRIPTOR.message_types_by_name['Response'] = _RESPONSE
-DESCRIPTOR.enum_types_by_name['DataType'] = _DATATYPE
-DESCRIPTOR.enum_types_by_name['ErrorType'] = _ERRORTYPE
-DESCRIPTOR.enum_types_by_name['SensorType'] = _SENSORTYPE
-DESCRIPTOR.enum_types_by_name['Unit'] = _UNIT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-AltitudeQuantity = _reflection.GeneratedProtocolMessageType('AltitudeQuantity', (_message.Message,), dict(
-  DESCRIPTOR = _ALTITUDEQUANTITY,
+Celsius = _reflection.GeneratedProtocolMessageType('Celsius', (_message.Message,), dict(
+  DESCRIPTOR = _CELSIUS,
   __module__ = 'sensor_data_pb2'
-  # @@protoc_insertion_point(class_scope:AltitudeQuantity)
+  # @@protoc_insertion_point(class_scope:Celsius)
   ))
-_sym_db.RegisterMessage(AltitudeQuantity)
+_sym_db.RegisterMessage(Celsius)
 
-EquivalentCarbonDioxideQuantity = _reflection.GeneratedProtocolMessageType('EquivalentCarbonDioxideQuantity', (_message.Message,), dict(
-  DESCRIPTOR = _EQUIVALENTCARBONDIOXIDEQUANTITY,
+Hectopascals = _reflection.GeneratedProtocolMessageType('Hectopascals', (_message.Message,), dict(
+  DESCRIPTOR = _HECTOPASCALS,
   __module__ = 'sensor_data_pb2'
-  # @@protoc_insertion_point(class_scope:EquivalentCarbonDioxideQuantity)
+  # @@protoc_insertion_point(class_scope:Hectopascals)
   ))
-_sym_db.RegisterMessage(EquivalentCarbonDioxideQuantity)
+_sym_db.RegisterMessage(Hectopascals)
 
-HumidityQuantity = _reflection.GeneratedProtocolMessageType('HumidityQuantity', (_message.Message,), dict(
-  DESCRIPTOR = _HUMIDITYQUANTITY,
+Meters = _reflection.GeneratedProtocolMessageType('Meters', (_message.Message,), dict(
+  DESCRIPTOR = _METERS,
   __module__ = 'sensor_data_pb2'
-  # @@protoc_insertion_point(class_scope:HumidityQuantity)
+  # @@protoc_insertion_point(class_scope:Meters)
   ))
-_sym_db.RegisterMessage(HumidityQuantity)
+_sym_db.RegisterMessage(Meters)
 
-PressureQuantity = _reflection.GeneratedProtocolMessageType('PressureQuantity', (_message.Message,), dict(
-  DESCRIPTOR = _PRESSUREQUANTITY,
+MetersPerSecond = _reflection.GeneratedProtocolMessageType('MetersPerSecond', (_message.Message,), dict(
+  DESCRIPTOR = _METERSPERSECOND,
   __module__ = 'sensor_data_pb2'
-  # @@protoc_insertion_point(class_scope:PressureQuantity)
+  # @@protoc_insertion_point(class_scope:MetersPerSecond)
   ))
-_sym_db.RegisterMessage(PressureQuantity)
+_sym_db.RegisterMessage(MetersPerSecond)
 
-TemperatureQuantity = _reflection.GeneratedProtocolMessageType('TemperatureQuantity', (_message.Message,), dict(
-  DESCRIPTOR = _TEMPERATUREQUANTITY,
+PartsPerBillion = _reflection.GeneratedProtocolMessageType('PartsPerBillion', (_message.Message,), dict(
+  DESCRIPTOR = _PARTSPERBILLION,
   __module__ = 'sensor_data_pb2'
-  # @@protoc_insertion_point(class_scope:TemperatureQuantity)
+  # @@protoc_insertion_point(class_scope:PartsPerBillion)
   ))
-_sym_db.RegisterMessage(TemperatureQuantity)
+_sym_db.RegisterMessage(PartsPerBillion)
 
-TotalVolatileOrganicCompoundsQuantity = _reflection.GeneratedProtocolMessageType('TotalVolatileOrganicCompoundsQuantity', (_message.Message,), dict(
-  DESCRIPTOR = _TOTALVOLATILEORGANICCOMPOUNDSQUANTITY,
+PartsPerMillion = _reflection.GeneratedProtocolMessageType('PartsPerMillion', (_message.Message,), dict(
+  DESCRIPTOR = _PARTSPERMILLION,
   __module__ = 'sensor_data_pb2'
-  # @@protoc_insertion_point(class_scope:TotalVolatileOrganicCompoundsQuantity)
+  # @@protoc_insertion_point(class_scope:PartsPerMillion)
   ))
-_sym_db.RegisterMessage(TotalVolatileOrganicCompoundsQuantity)
+_sym_db.RegisterMessage(PartsPerMillion)
 
-WindDirectionQuantity = _reflection.GeneratedProtocolMessageType('WindDirectionQuantity', (_message.Message,), dict(
-  DESCRIPTOR = _WINDDIRECTIONQUANTITY,
+Percent = _reflection.GeneratedProtocolMessageType('Percent', (_message.Message,), dict(
+  DESCRIPTOR = _PERCENT,
   __module__ = 'sensor_data_pb2'
-  # @@protoc_insertion_point(class_scope:WindDirectionQuantity)
+  # @@protoc_insertion_point(class_scope:Percent)
   ))
-_sym_db.RegisterMessage(WindDirectionQuantity)
+_sym_db.RegisterMessage(Percent)
 
-WindSpeedQuantity = _reflection.GeneratedProtocolMessageType('WindSpeedQuantity', (_message.Message,), dict(
-  DESCRIPTOR = _WINDSPEEDQUANTITY,
+Radians = _reflection.GeneratedProtocolMessageType('Radians', (_message.Message,), dict(
+  DESCRIPTOR = _RADIANS,
   __module__ = 'sensor_data_pb2'
-  # @@protoc_insertion_point(class_scope:WindSpeedQuantity)
+  # @@protoc_insertion_point(class_scope:Radians)
   ))
-_sym_db.RegisterMessage(WindSpeedQuantity)
+_sym_db.RegisterMessage(Radians)
+
+Sensor = _reflection.GeneratedProtocolMessageType('Sensor', (_message.Message,), dict(
+  DESCRIPTOR = _SENSOR,
+  __module__ = 'sensor_data_pb2'
+  # @@protoc_insertion_point(class_scope:Sensor)
+  ))
+_sym_db.RegisterMessage(Sensor)
 
 Measurement = _reflection.GeneratedProtocolMessageType('Measurement', (_message.Message,), dict(
   DESCRIPTOR = _MEASUREMENT,
@@ -859,20 +570,6 @@ Measurement = _reflection.GeneratedProtocolMessageType('Measurement', (_message.
   # @@protoc_insertion_point(class_scope:Measurement)
   ))
 _sym_db.RegisterMessage(Measurement)
-
-Data = _reflection.GeneratedProtocolMessageType('Data', (_message.Message,), dict(
-  DESCRIPTOR = _DATA,
-  __module__ = 'sensor_data_pb2'
-  # @@protoc_insertion_point(class_scope:Data)
-  ))
-_sym_db.RegisterMessage(Data)
-
-Response = _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), dict(
-  DESCRIPTOR = _RESPONSE,
-  __module__ = 'sensor_data_pb2'
-  # @@protoc_insertion_point(class_scope:Response)
-  ))
-_sym_db.RegisterMessage(Response)
 
 
 # @@protoc_insertion_point(module_scope)

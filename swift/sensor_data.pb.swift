@@ -7,7 +7,7 @@
 //   https://github.com/apple/swift-protobuf/
 
 //
-// sensor_data_v2.proto
+// sensor_data.proto
 // Provides a medium for sensor<->device<->server communication
 
 import Foundation

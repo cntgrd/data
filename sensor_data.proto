@@ -75,18 +75,3 @@ message Measurement {
     Sensor sensor = 10;
 }
 
-///*
-// * ErrorType
-// * ---------------
-// *
-// */
-//enum ErrorType {
-//  DEFAULT_ERROR = 0; 
-//  BAD_REQUEST = 1;
-//  FORBIDDEN = 2;
-//  INTERNAL_SERVER_ERROR = 3;
-//  NOT_FOUND = 4;
-//  NOT_IMPLEMENTED = 5;
-//  UNAUTHORIZED = 6;
-//}
-

@@ -1,41 +1,76 @@
+/*
+ * sensor_data.proto
+ * Provides a medium for sensor<->device<->server communication
+ */
+
 syntax = "proto3";
 
-enum SensorType {
-  DUMMYSENSOR = 0;
-  TEMPERATURE = 1;
-  PRESSURE = 2;
-  HUMIDITY = 3;
-  CO2 = 4;
-  VOC = 5;
-  ALTITUDE = 6;
+/*
+ * Unit types
+ */
+
+message Celsius {
+    double value = 1;    
 }
 
-enum Unit {
-  DUMMYUNIT = 0;
-  CELCIUS = 1;
-  HPA = 2; //hectopascals
-  MPS = 3; //meters per second
-  METERS = 4;
-  PERCENT = 5;
+message Hectopascals {
+    uint32 value = 1;    
 }
 
-message Quantity {
-  float value = 1;
-  Unit unit = 2;
-  float vector = 3;
+message Meters {
+    sint32 value = 1;    
 }
 
+message MetersPerSecond {
+    double value = 1;    
+}
+
+message PartsPerBillion {
+    uint32 value = 1;
+}
+
+message PartsPerMillion {
+    uint32 value = 1; 
+}
+
+message Percent {
+    uint32 value = 1;    
+}
+
+message Radians {
+    double value = 1;    
+}
+
+message Sensor {
+    string uuid = 1;    
+    enum SensorType {
+        DEFAULT = 0;    
+        ALTITUDE = 1;
+        ANEMOMETER = 2;
+        EQUIVALENT_CO2 = 3;
+        HUMIDITY = 4;
+        PRESSURE = 5;
+        TEMPERATURE = 6;
+        TOTAL_VOC = 7;
+    }
+    SensorType sensor_type = 2;
+}
+
+/*
+ * Measurement
+ */
 message Measurement {
-  string sensor = 1;
-  SensorType type = 2;
-  Quantity quantity = 3;
-  int64 time = 4; //int64 because fixed64 will only become more efficient in the year 2283416224
-}
-
-message SensorResponse {
-  bool success = 1;
-  string error = 2;
-  string message = 3;
-  repeated Measurement data = 4;
+    uint64 time = 1;
+    oneof measurement {
+        Celsius temperature = 2;
+        Hectopascals pressure = 3;
+        Meters altitude = 4;
+        MetersPerSecond wind_speed = 5;
+        PartsPerBillion total_vocs = 6;
+        PartsPerMillion equivalent_co2 = 7;
+        Percent humidity = 8;
+        Radians wind_direction = 9;
+    }
+    Sensor sensor = 10;
 }
 

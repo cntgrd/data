@@ -17,8 +17,7 @@ SRC = ./
 all: swift
 
 swift:
-	mkdir -p swift
-	protoc --swift_out=swift/ $(SRC)*.proto
+	protoc --swift_out=Sources/data/ $(SRC)*.proto
 
 clean:
 	find ./swift -name '*.pb.swift' | xargs rm -f

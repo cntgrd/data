@@ -1,5 +1,5 @@
 import XCTest
-@testable import data
+@testable import CentigradeData
 
 class dataTests: XCTestCase {
     func testExample() {

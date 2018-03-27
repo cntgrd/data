@@ -1,6 +1,6 @@
 import XCTest
-@testable import dataTests
+@testable import CentigradeDataTests
 
 XCTMain([
-    testCase(dataTests.allTests),
+    testCase(CentigradeDataTests.allTests),
 ])

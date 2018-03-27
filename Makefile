@@ -17,9 +17,9 @@ SRC = ./
 all: swift
 
 swift:
-	protoc --swift_out=Sources/data/ $(SRC)*.proto
+	protoc --swift_out=Sources/CentigradeData/ $(SRC)*.proto
 
 clean:
-	find ./swift -name '*.pb.swift' | xargs rm -f
+	find . -name '*.pb.swift' | xargs rm -f
 
 .PHONY: all clean swift

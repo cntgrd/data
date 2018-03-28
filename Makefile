@@ -17,7 +17,7 @@ SRC = ./
 all: swift
 
 swift:
-	protoc --swift_out=Sources/CentigradeData/ $(SRC)*.proto
+	protoc --swift_opt=Visibility=Public --swift_out=Sources/CentigradeData/ $(SRC)*.proto
 
 clean:
 	find . -name '*.pb.swift' | xargs rm -f

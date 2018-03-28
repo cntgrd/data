@@ -23,20 +23,20 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct Celsius: SwiftProtobuf.Message {
-  static let protoMessageName: String = "Celsius"
+public struct Celsius: SwiftProtobuf.Message {
+  public static let protoMessageName: String = "Celsius"
 
-  var value: Double = 0
+  public var value: Double = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   /// Used by the decoding initializers in the SwiftProtobuf library, not generally
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularDoubleField(value: &self.value)
@@ -49,7 +49,7 @@ struct Celsius: SwiftProtobuf.Message {
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularDoubleField(value: self.value, fieldNumber: 1)
     }
@@ -57,20 +57,20 @@ struct Celsius: SwiftProtobuf.Message {
   }
 }
 
-struct Hectopascals: SwiftProtobuf.Message {
-  static let protoMessageName: String = "Hectopascals"
+public struct Hectopascals: SwiftProtobuf.Message {
+  public static let protoMessageName: String = "Hectopascals"
 
-  var value: UInt32 = 0
+  public var value: UInt32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   /// Used by the decoding initializers in the SwiftProtobuf library, not generally
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularUInt32Field(value: &self.value)
@@ -83,7 +83,7 @@ struct Hectopascals: SwiftProtobuf.Message {
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularUInt32Field(value: self.value, fieldNumber: 1)
     }
@@ -91,20 +91,20 @@ struct Hectopascals: SwiftProtobuf.Message {
   }
 }
 
-struct Meters: SwiftProtobuf.Message {
-  static let protoMessageName: String = "Meters"
+public struct Meters: SwiftProtobuf.Message {
+  public static let protoMessageName: String = "Meters"
 
-  var value: Int32 = 0
+  public var value: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   /// Used by the decoding initializers in the SwiftProtobuf library, not generally
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularSInt32Field(value: &self.value)
@@ -117,7 +117,7 @@ struct Meters: SwiftProtobuf.Message {
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularSInt32Field(value: self.value, fieldNumber: 1)
     }
@@ -125,20 +125,20 @@ struct Meters: SwiftProtobuf.Message {
   }
 }
 
-struct MetersPerSecond: SwiftProtobuf.Message {
-  static let protoMessageName: String = "MetersPerSecond"
+public struct MetersPerSecond: SwiftProtobuf.Message {
+  public static let protoMessageName: String = "MetersPerSecond"
 
-  var value: Double = 0
+  public var value: Double = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   /// Used by the decoding initializers in the SwiftProtobuf library, not generally
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularDoubleField(value: &self.value)
@@ -151,7 +151,7 @@ struct MetersPerSecond: SwiftProtobuf.Message {
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularDoubleField(value: self.value, fieldNumber: 1)
     }
@@ -159,20 +159,20 @@ struct MetersPerSecond: SwiftProtobuf.Message {
   }
 }
 
-struct PartsPerBillion: SwiftProtobuf.Message {
-  static let protoMessageName: String = "PartsPerBillion"
+public struct PartsPerBillion: SwiftProtobuf.Message {
+  public static let protoMessageName: String = "PartsPerBillion"
 
-  var value: UInt32 = 0
+  public var value: UInt32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   /// Used by the decoding initializers in the SwiftProtobuf library, not generally
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularUInt32Field(value: &self.value)
@@ -185,7 +185,7 @@ struct PartsPerBillion: SwiftProtobuf.Message {
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularUInt32Field(value: self.value, fieldNumber: 1)
     }
@@ -193,20 +193,20 @@ struct PartsPerBillion: SwiftProtobuf.Message {
   }
 }
 
-struct PartsPerMillion: SwiftProtobuf.Message {
-  static let protoMessageName: String = "PartsPerMillion"
+public struct PartsPerMillion: SwiftProtobuf.Message {
+  public static let protoMessageName: String = "PartsPerMillion"
 
-  var value: UInt32 = 0
+  public var value: UInt32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   /// Used by the decoding initializers in the SwiftProtobuf library, not generally
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularUInt32Field(value: &self.value)
@@ -219,7 +219,7 @@ struct PartsPerMillion: SwiftProtobuf.Message {
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularUInt32Field(value: self.value, fieldNumber: 1)
     }
@@ -227,20 +227,20 @@ struct PartsPerMillion: SwiftProtobuf.Message {
   }
 }
 
-struct Percent: SwiftProtobuf.Message {
-  static let protoMessageName: String = "Percent"
+public struct Percent: SwiftProtobuf.Message {
+  public static let protoMessageName: String = "Percent"
 
-  var value: UInt32 = 0
+  public var value: UInt32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   /// Used by the decoding initializers in the SwiftProtobuf library, not generally
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularUInt32Field(value: &self.value)
@@ -253,7 +253,7 @@ struct Percent: SwiftProtobuf.Message {
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularUInt32Field(value: self.value, fieldNumber: 1)
     }
@@ -261,20 +261,20 @@ struct Percent: SwiftProtobuf.Message {
   }
 }
 
-struct Radians: SwiftProtobuf.Message {
-  static let protoMessageName: String = "Radians"
+public struct Radians: SwiftProtobuf.Message {
+  public static let protoMessageName: String = "Radians"
 
-  var value: Double = 0
+  public var value: Double = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   /// Used by the decoding initializers in the SwiftProtobuf library, not generally
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularDoubleField(value: &self.value)
@@ -287,7 +287,7 @@ struct Radians: SwiftProtobuf.Message {
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularDoubleField(value: self.value, fieldNumber: 1)
     }
@@ -295,17 +295,17 @@ struct Radians: SwiftProtobuf.Message {
   }
 }
 
-struct Sensor: SwiftProtobuf.Message {
-  static let protoMessageName: String = "Sensor"
+public struct Sensor: SwiftProtobuf.Message {
+  public static let protoMessageName: String = "Sensor"
 
-  var uuid: String = String()
+  public var uuid: String = String()
 
-  var sensorType: Sensor.SensorType = .default
+  public var sensorType: Sensor.SensorType = .default
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum SensorType: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum SensorType: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case `default` // = 0
     case altitude // = 1
     case anemometer // = 2
@@ -316,11 +316,11 @@ struct Sensor: SwiftProtobuf.Message {
     case totalVoc // = 7
     case UNRECOGNIZED(Int)
 
-    init() {
+    public init() {
       self = .default
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .default
       case 1: self = .altitude
@@ -334,7 +334,7 @@ struct Sensor: SwiftProtobuf.Message {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .default: return 0
       case .altitude: return 1
@@ -350,13 +350,13 @@ struct Sensor: SwiftProtobuf.Message {
 
   }
 
-  init() {}
+  public init() {}
 
   /// Used by the decoding initializers in the SwiftProtobuf library, not generally
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularStringField(value: &self.uuid)
@@ -370,7 +370,7 @@ struct Sensor: SwiftProtobuf.Message {
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.uuid.isEmpty {
       try visitor.visitSingularStringField(value: self.uuid, fieldNumber: 1)
     }
@@ -383,20 +383,20 @@ struct Sensor: SwiftProtobuf.Message {
 
 ///
 /// Measurement
-struct Measurement: SwiftProtobuf.Message {
-  static let protoMessageName: String = "Measurement"
+public struct Measurement: SwiftProtobuf.Message {
+  public static let protoMessageName: String = "Measurement"
 
-  var time: UInt64 {
+  public var time: UInt64 {
     get {return _storage._time}
     set {_uniqueStorage()._time = newValue}
   }
 
-  var measurement: OneOf_Measurement? {
+  public var measurement: OneOf_Measurement? {
     get {return _storage._measurement}
     set {_uniqueStorage()._measurement = newValue}
   }
 
-  var temperature: Celsius {
+  public var temperature: Celsius {
     get {
       if case .temperature(let v)? = _storage._measurement {return v}
       return Celsius()
@@ -404,7 +404,7 @@ struct Measurement: SwiftProtobuf.Message {
     set {_uniqueStorage()._measurement = .temperature(newValue)}
   }
 
-  var pressure: Hectopascals {
+  public var pressure: Hectopascals {
     get {
       if case .pressure(let v)? = _storage._measurement {return v}
       return Hectopascals()
@@ -412,7 +412,7 @@ struct Measurement: SwiftProtobuf.Message {
     set {_uniqueStorage()._measurement = .pressure(newValue)}
   }
 
-  var altitude: Meters {
+  public var altitude: Meters {
     get {
       if case .altitude(let v)? = _storage._measurement {return v}
       return Meters()
@@ -420,7 +420,7 @@ struct Measurement: SwiftProtobuf.Message {
     set {_uniqueStorage()._measurement = .altitude(newValue)}
   }
 
-  var windSpeed: MetersPerSecond {
+  public var windSpeed: MetersPerSecond {
     get {
       if case .windSpeed(let v)? = _storage._measurement {return v}
       return MetersPerSecond()
@@ -428,7 +428,7 @@ struct Measurement: SwiftProtobuf.Message {
     set {_uniqueStorage()._measurement = .windSpeed(newValue)}
   }
 
-  var totalVocs: PartsPerBillion {
+  public var totalVocs: PartsPerBillion {
     get {
       if case .totalVocs(let v)? = _storage._measurement {return v}
       return PartsPerBillion()
@@ -436,7 +436,7 @@ struct Measurement: SwiftProtobuf.Message {
     set {_uniqueStorage()._measurement = .totalVocs(newValue)}
   }
 
-  var equivalentCo2: PartsPerMillion {
+  public var equivalentCo2: PartsPerMillion {
     get {
       if case .equivalentCo2(let v)? = _storage._measurement {return v}
       return PartsPerMillion()
@@ -444,7 +444,7 @@ struct Measurement: SwiftProtobuf.Message {
     set {_uniqueStorage()._measurement = .equivalentCo2(newValue)}
   }
 
-  var humidity: Percent {
+  public var humidity: Percent {
     get {
       if case .humidity(let v)? = _storage._measurement {return v}
       return Percent()
@@ -452,7 +452,7 @@ struct Measurement: SwiftProtobuf.Message {
     set {_uniqueStorage()._measurement = .humidity(newValue)}
   }
 
-  var windDirection: Radians {
+  public var windDirection: Radians {
     get {
       if case .windDirection(let v)? = _storage._measurement {return v}
       return Radians()
@@ -460,18 +460,18 @@ struct Measurement: SwiftProtobuf.Message {
     set {_uniqueStorage()._measurement = .windDirection(newValue)}
   }
 
-  var sensor: Sensor {
+  public var sensor: Sensor {
     get {return _storage._sensor ?? Sensor()}
     set {_uniqueStorage()._sensor = newValue}
   }
   /// Returns true if `sensor` has been explicitly set.
-  var hasSensor: Bool {return _storage._sensor != nil}
+  public var hasSensor: Bool {return _storage._sensor != nil}
   /// Clears the value of `sensor`. Subsequent reads from it will return its default value.
-  mutating func clearSensor() {_storage._sensor = nil}
+  public mutating func clearSensor() {_storage._sensor = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Measurement: Equatable {
+  public enum OneOf_Measurement: Equatable {
     case temperature(Celsius)
     case pressure(Hectopascals)
     case altitude(Meters)
@@ -481,7 +481,7 @@ struct Measurement: SwiftProtobuf.Message {
     case humidity(Percent)
     case windDirection(Radians)
 
-    static func ==(lhs: Measurement.OneOf_Measurement, rhs: Measurement.OneOf_Measurement) -> Bool {
+    public static func ==(lhs: Measurement.OneOf_Measurement, rhs: Measurement.OneOf_Measurement) -> Bool {
       switch (lhs, rhs) {
       case (.temperature(let l), .temperature(let r)): return l == r
       case (.pressure(let l), .pressure(let r)): return l == r
@@ -496,13 +496,13 @@ struct Measurement: SwiftProtobuf.Message {
     }
   }
 
-  init() {}
+  public init() {}
 
   /// Used by the decoding initializers in the SwiftProtobuf library, not generally
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -583,7 +583,7 @@ struct Measurement: SwiftProtobuf.Message {
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if _storage._time != 0 {
         try visitor.visitSingularUInt64Field(value: _storage._time, fieldNumber: 1)
@@ -620,11 +620,11 @@ struct Measurement: SwiftProtobuf.Message {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Celsius: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: Celsius) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Celsius) -> Bool {
     if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -632,11 +632,11 @@ extension Celsius: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._Prot
 }
 
 extension Hectopascals: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: Hectopascals) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Hectopascals) -> Bool {
     if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -644,11 +644,11 @@ extension Hectopascals: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.
 }
 
 extension Meters: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: Meters) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Meters) -> Bool {
     if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -656,11 +656,11 @@ extension Meters: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._Proto
 }
 
 extension MetersPerSecond: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: MetersPerSecond) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: MetersPerSecond) -> Bool {
     if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -668,11 +668,11 @@ extension MetersPerSecond: SwiftProtobuf._MessageImplementationBase, SwiftProtob
 }
 
 extension PartsPerBillion: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: PartsPerBillion) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: PartsPerBillion) -> Bool {
     if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -680,11 +680,11 @@ extension PartsPerBillion: SwiftProtobuf._MessageImplementationBase, SwiftProtob
 }
 
 extension PartsPerMillion: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: PartsPerMillion) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: PartsPerMillion) -> Bool {
     if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -692,11 +692,11 @@ extension PartsPerMillion: SwiftProtobuf._MessageImplementationBase, SwiftProtob
 }
 
 extension Percent: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: Percent) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Percent) -> Bool {
     if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -704,11 +704,11 @@ extension Percent: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._Prot
 }
 
 extension Radians: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: Radians) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Radians) -> Bool {
     if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -716,12 +716,12 @@ extension Radians: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._Prot
 }
 
 extension Sensor: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "uuid"),
     2: .standard(proto: "sensor_type"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: Sensor) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Sensor) -> Bool {
     if self.uuid != other.uuid {return false}
     if self.sensorType != other.sensorType {return false}
     if unknownFields != other.unknownFields {return false}
@@ -730,7 +730,7 @@ extension Sensor: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._Proto
 }
 
 extension Sensor.SensorType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "DEFAULT"),
     1: .same(proto: "ALTITUDE"),
     2: .same(proto: "ANEMOMETER"),
@@ -743,7 +743,7 @@ extension Sensor.SensorType: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Measurement: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "time"),
     2: .same(proto: "temperature"),
     3: .same(proto: "pressure"),
@@ -779,7 +779,7 @@ extension Measurement: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._
     return _storage
   }
 
-  func _protobuf_generated_isEqualTo(other: Measurement) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Measurement) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0

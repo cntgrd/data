@@ -7,7 +7,7 @@
 //   https://github.com/apple/swift-protobuf/
 
 //
-// sensor_data.proto
+// CentigradeData.proto 
 // Provides a medium for sensor<->device<->server communication
 
 import Foundation
@@ -23,8 +23,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public struct Celsius: SwiftProtobuf.Message {
-  public static let protoMessageName: String = "Celsius"
+public struct Centigrade_Celsius: SwiftProtobuf.Message {
+  public static let protoMessageName: String = _protobuf_package + ".Celsius"
 
   public var value: Double = 0
 
@@ -57,8 +57,8 @@ public struct Celsius: SwiftProtobuf.Message {
   }
 }
 
-public struct Hectopascals: SwiftProtobuf.Message {
-  public static let protoMessageName: String = "Hectopascals"
+public struct Centigrade_Hectopascals: SwiftProtobuf.Message {
+  public static let protoMessageName: String = _protobuf_package + ".Hectopascals"
 
   public var value: UInt32 = 0
 
@@ -91,8 +91,8 @@ public struct Hectopascals: SwiftProtobuf.Message {
   }
 }
 
-public struct Meters: SwiftProtobuf.Message {
-  public static let protoMessageName: String = "Meters"
+public struct Centigrade_Meters: SwiftProtobuf.Message {
+  public static let protoMessageName: String = _protobuf_package + ".Meters"
 
   public var value: Int32 = 0
 
@@ -125,8 +125,8 @@ public struct Meters: SwiftProtobuf.Message {
   }
 }
 
-public struct MetersPerSecond: SwiftProtobuf.Message {
-  public static let protoMessageName: String = "MetersPerSecond"
+public struct Centigrade_MetersPerSecond: SwiftProtobuf.Message {
+  public static let protoMessageName: String = _protobuf_package + ".MetersPerSecond"
 
   public var value: Double = 0
 
@@ -159,8 +159,8 @@ public struct MetersPerSecond: SwiftProtobuf.Message {
   }
 }
 
-public struct PartsPerBillion: SwiftProtobuf.Message {
-  public static let protoMessageName: String = "PartsPerBillion"
+public struct Centigrade_PartsPerBillion: SwiftProtobuf.Message {
+  public static let protoMessageName: String = _protobuf_package + ".PartsPerBillion"
 
   public var value: UInt32 = 0
 
@@ -193,8 +193,8 @@ public struct PartsPerBillion: SwiftProtobuf.Message {
   }
 }
 
-public struct PartsPerMillion: SwiftProtobuf.Message {
-  public static let protoMessageName: String = "PartsPerMillion"
+public struct Centigrade_PartsPerMillion: SwiftProtobuf.Message {
+  public static let protoMessageName: String = _protobuf_package + ".PartsPerMillion"
 
   public var value: UInt32 = 0
 
@@ -227,8 +227,8 @@ public struct PartsPerMillion: SwiftProtobuf.Message {
   }
 }
 
-public struct Percent: SwiftProtobuf.Message {
-  public static let protoMessageName: String = "Percent"
+public struct Centigrade_Percent: SwiftProtobuf.Message {
+  public static let protoMessageName: String = _protobuf_package + ".Percent"
 
   public var value: UInt32 = 0
 
@@ -261,8 +261,8 @@ public struct Percent: SwiftProtobuf.Message {
   }
 }
 
-public struct Radians: SwiftProtobuf.Message {
-  public static let protoMessageName: String = "Radians"
+public struct Centigrade_Radians: SwiftProtobuf.Message {
+  public static let protoMessageName: String = _protobuf_package + ".Radians"
 
   public var value: Double = 0
 
@@ -295,12 +295,12 @@ public struct Radians: SwiftProtobuf.Message {
   }
 }
 
-public struct Sensor: SwiftProtobuf.Message {
-  public static let protoMessageName: String = "Sensor"
+public struct Centigrade_Sensor: SwiftProtobuf.Message {
+  public static let protoMessageName: String = _protobuf_package + ".Sensor"
 
   public var uuid: String = String()
 
-  public var sensorType: Sensor.SensorType = .default
+  public var sensorType: Centigrade_Sensor.SensorType = .default
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -383,8 +383,8 @@ public struct Sensor: SwiftProtobuf.Message {
 
 ///
 /// Measurement
-public struct Measurement: SwiftProtobuf.Message {
-  public static let protoMessageName: String = "Measurement"
+public struct Centigrade_Measurement: SwiftProtobuf.Message {
+  public static let protoMessageName: String = _protobuf_package + ".Measurement"
 
   public var time: UInt64 {
     get {return _storage._time}
@@ -396,72 +396,72 @@ public struct Measurement: SwiftProtobuf.Message {
     set {_uniqueStorage()._measurement = newValue}
   }
 
-  public var temperature: Celsius {
+  public var temperature: Centigrade_Celsius {
     get {
       if case .temperature(let v)? = _storage._measurement {return v}
-      return Celsius()
+      return Centigrade_Celsius()
     }
     set {_uniqueStorage()._measurement = .temperature(newValue)}
   }
 
-  public var pressure: Hectopascals {
+  public var pressure: Centigrade_Hectopascals {
     get {
       if case .pressure(let v)? = _storage._measurement {return v}
-      return Hectopascals()
+      return Centigrade_Hectopascals()
     }
     set {_uniqueStorage()._measurement = .pressure(newValue)}
   }
 
-  public var altitude: Meters {
+  public var altitude: Centigrade_Meters {
     get {
       if case .altitude(let v)? = _storage._measurement {return v}
-      return Meters()
+      return Centigrade_Meters()
     }
     set {_uniqueStorage()._measurement = .altitude(newValue)}
   }
 
-  public var windSpeed: MetersPerSecond {
+  public var windSpeed: Centigrade_MetersPerSecond {
     get {
       if case .windSpeed(let v)? = _storage._measurement {return v}
-      return MetersPerSecond()
+      return Centigrade_MetersPerSecond()
     }
     set {_uniqueStorage()._measurement = .windSpeed(newValue)}
   }
 
-  public var totalVocs: PartsPerBillion {
+  public var totalVocs: Centigrade_PartsPerBillion {
     get {
       if case .totalVocs(let v)? = _storage._measurement {return v}
-      return PartsPerBillion()
+      return Centigrade_PartsPerBillion()
     }
     set {_uniqueStorage()._measurement = .totalVocs(newValue)}
   }
 
-  public var equivalentCo2: PartsPerMillion {
+  public var equivalentCo2: Centigrade_PartsPerMillion {
     get {
       if case .equivalentCo2(let v)? = _storage._measurement {return v}
-      return PartsPerMillion()
+      return Centigrade_PartsPerMillion()
     }
     set {_uniqueStorage()._measurement = .equivalentCo2(newValue)}
   }
 
-  public var humidity: Percent {
+  public var humidity: Centigrade_Percent {
     get {
       if case .humidity(let v)? = _storage._measurement {return v}
-      return Percent()
+      return Centigrade_Percent()
     }
     set {_uniqueStorage()._measurement = .humidity(newValue)}
   }
 
-  public var windDirection: Radians {
+  public var windDirection: Centigrade_Radians {
     get {
       if case .windDirection(let v)? = _storage._measurement {return v}
-      return Radians()
+      return Centigrade_Radians()
     }
     set {_uniqueStorage()._measurement = .windDirection(newValue)}
   }
 
-  public var sensor: Sensor {
-    get {return _storage._sensor ?? Sensor()}
+  public var sensor: Centigrade_Sensor {
+    get {return _storage._sensor ?? Centigrade_Sensor()}
     set {_uniqueStorage()._sensor = newValue}
   }
   /// Returns true if `sensor` has been explicitly set.
@@ -472,16 +472,16 @@ public struct Measurement: SwiftProtobuf.Message {
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public enum OneOf_Measurement: Equatable {
-    case temperature(Celsius)
-    case pressure(Hectopascals)
-    case altitude(Meters)
-    case windSpeed(MetersPerSecond)
-    case totalVocs(PartsPerBillion)
-    case equivalentCo2(PartsPerMillion)
-    case humidity(Percent)
-    case windDirection(Radians)
+    case temperature(Centigrade_Celsius)
+    case pressure(Centigrade_Hectopascals)
+    case altitude(Centigrade_Meters)
+    case windSpeed(Centigrade_MetersPerSecond)
+    case totalVocs(Centigrade_PartsPerBillion)
+    case equivalentCo2(Centigrade_PartsPerMillion)
+    case humidity(Centigrade_Percent)
+    case windDirection(Centigrade_Radians)
 
-    public static func ==(lhs: Measurement.OneOf_Measurement, rhs: Measurement.OneOf_Measurement) -> Bool {
+    public static func ==(lhs: Centigrade_Measurement.OneOf_Measurement, rhs: Centigrade_Measurement.OneOf_Measurement) -> Bool {
       switch (lhs, rhs) {
       case (.temperature(let l), .temperature(let r)): return l == r
       case (.pressure(let l), .pressure(let r)): return l == r
@@ -509,7 +509,7 @@ public struct Measurement: SwiftProtobuf.Message {
         switch fieldNumber {
         case 1: try decoder.decodeSingularUInt64Field(value: &_storage._time)
         case 2:
-          var v: Celsius?
+          var v: Centigrade_Celsius?
           if let current = _storage._measurement {
             try decoder.handleConflictingOneOf()
             if case .temperature(let m) = current {v = m}
@@ -517,7 +517,7 @@ public struct Measurement: SwiftProtobuf.Message {
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._measurement = .temperature(v)}
         case 3:
-          var v: Hectopascals?
+          var v: Centigrade_Hectopascals?
           if let current = _storage._measurement {
             try decoder.handleConflictingOneOf()
             if case .pressure(let m) = current {v = m}
@@ -525,7 +525,7 @@ public struct Measurement: SwiftProtobuf.Message {
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._measurement = .pressure(v)}
         case 4:
-          var v: Meters?
+          var v: Centigrade_Meters?
           if let current = _storage._measurement {
             try decoder.handleConflictingOneOf()
             if case .altitude(let m) = current {v = m}
@@ -533,7 +533,7 @@ public struct Measurement: SwiftProtobuf.Message {
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._measurement = .altitude(v)}
         case 5:
-          var v: MetersPerSecond?
+          var v: Centigrade_MetersPerSecond?
           if let current = _storage._measurement {
             try decoder.handleConflictingOneOf()
             if case .windSpeed(let m) = current {v = m}
@@ -541,7 +541,7 @@ public struct Measurement: SwiftProtobuf.Message {
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._measurement = .windSpeed(v)}
         case 6:
-          var v: PartsPerBillion?
+          var v: Centigrade_PartsPerBillion?
           if let current = _storage._measurement {
             try decoder.handleConflictingOneOf()
             if case .totalVocs(let m) = current {v = m}
@@ -549,7 +549,7 @@ public struct Measurement: SwiftProtobuf.Message {
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._measurement = .totalVocs(v)}
         case 7:
-          var v: PartsPerMillion?
+          var v: Centigrade_PartsPerMillion?
           if let current = _storage._measurement {
             try decoder.handleConflictingOneOf()
             if case .equivalentCo2(let m) = current {v = m}
@@ -557,7 +557,7 @@ public struct Measurement: SwiftProtobuf.Message {
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._measurement = .equivalentCo2(v)}
         case 8:
-          var v: Percent?
+          var v: Centigrade_Percent?
           if let current = _storage._measurement {
             try decoder.handleConflictingOneOf()
             if case .humidity(let m) = current {v = m}
@@ -565,7 +565,7 @@ public struct Measurement: SwiftProtobuf.Message {
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._measurement = .humidity(v)}
         case 9:
-          var v: Radians?
+          var v: Centigrade_Radians?
           if let current = _storage._measurement {
             try decoder.handleConflictingOneOf()
             if case .windDirection(let m) = current {v = m}
@@ -619,109 +619,111 @@ public struct Measurement: SwiftProtobuf.Message {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Celsius: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+fileprivate let _protobuf_package = "Centigrade"
+
+extension Centigrade_Celsius: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  public func _protobuf_generated_isEqualTo(other: Celsius) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Centigrade_Celsius) -> Bool {
     if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
-extension Hectopascals: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Centigrade_Hectopascals: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  public func _protobuf_generated_isEqualTo(other: Hectopascals) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Centigrade_Hectopascals) -> Bool {
     if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
-extension Meters: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Centigrade_Meters: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  public func _protobuf_generated_isEqualTo(other: Meters) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Centigrade_Meters) -> Bool {
     if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
-extension MetersPerSecond: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Centigrade_MetersPerSecond: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  public func _protobuf_generated_isEqualTo(other: MetersPerSecond) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Centigrade_MetersPerSecond) -> Bool {
     if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
-extension PartsPerBillion: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Centigrade_PartsPerBillion: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  public func _protobuf_generated_isEqualTo(other: PartsPerBillion) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Centigrade_PartsPerBillion) -> Bool {
     if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
-extension PartsPerMillion: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Centigrade_PartsPerMillion: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  public func _protobuf_generated_isEqualTo(other: PartsPerMillion) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Centigrade_PartsPerMillion) -> Bool {
     if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
-extension Percent: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Centigrade_Percent: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  public func _protobuf_generated_isEqualTo(other: Percent) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Centigrade_Percent) -> Bool {
     if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
-extension Radians: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Centigrade_Radians: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  public func _protobuf_generated_isEqualTo(other: Radians) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Centigrade_Radians) -> Bool {
     if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
-extension Sensor: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Centigrade_Sensor: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "uuid"),
     2: .standard(proto: "sensor_type"),
   ]
 
-  public func _protobuf_generated_isEqualTo(other: Sensor) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Centigrade_Sensor) -> Bool {
     if self.uuid != other.uuid {return false}
     if self.sensorType != other.sensorType {return false}
     if unknownFields != other.unknownFields {return false}
@@ -729,7 +731,7 @@ extension Sensor: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._Proto
   }
 }
 
-extension Sensor.SensorType: SwiftProtobuf._ProtoNameProviding {
+extension Centigrade_Sensor.SensorType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "DEFAULT"),
     1: .same(proto: "ALTITUDE"),
@@ -742,7 +744,7 @@ extension Sensor.SensorType: SwiftProtobuf._ProtoNameProviding {
   ]
 }
 
-extension Measurement: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Centigrade_Measurement: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "time"),
     2: .same(proto: "temperature"),
@@ -758,8 +760,8 @@ extension Measurement: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._
 
   fileprivate class _StorageClass {
     var _time: UInt64 = 0
-    var _measurement: Measurement.OneOf_Measurement?
-    var _sensor: Sensor? = nil
+    var _measurement: Centigrade_Measurement.OneOf_Measurement?
+    var _sensor: Centigrade_Sensor? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -779,7 +781,7 @@ extension Measurement: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._
     return _storage
   }
 
-  public func _protobuf_generated_isEqualTo(other: Measurement) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Centigrade_Measurement) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0

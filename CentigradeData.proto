@@ -1,12 +1,15 @@
 /*
- * sensor_data.proto
+ * CentigradeData.proto 
  * Provides a medium for sensor<->device<->server communication
  */
 
 syntax = "proto3";
 
+package Centigrade;
+
 /*
- * Unit types
+ * Weather
+ *
  */
 
 message Celsius {
@@ -73,4 +76,10 @@ message Measurement {
     }
     Sensor sensor = 10;
 }
+
+/*
+ * Authentication
+ *
+ */
+
 

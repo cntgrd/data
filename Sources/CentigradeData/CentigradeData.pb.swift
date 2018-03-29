@@ -617,6 +617,46 @@ public struct Centigrade_Measurement: SwiftProtobuf.Message {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+public struct Centigrade_StationRecentMeasurements: SwiftProtobuf.Message {
+  public static let protoMessageName: String = _protobuf_package + ".StationRecentMeasurements"
+
+  public var uuid: String = String()
+
+  public var measurements: [Centigrade_Measurement] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
+  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
+  /// initializers are defined in the SwiftProtobuf library. See the Message and
+  /// Message+*Additions` files.
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularStringField(value: &self.uuid)
+      case 2: try decoder.decodeRepeatedMessageField(value: &self.measurements)
+      default: break
+      }
+    }
+  }
+
+  /// Used by the encoding methods of the SwiftProtobuf library, not generally
+  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
+  /// other serializer methods are defined in the SwiftProtobuf library. See the
+  /// `Message` and `Message+*Additions` files.
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.uuid.isEmpty {
+      try visitor.visitSingularStringField(value: self.uuid, fieldNumber: 1)
+    }
+    if !self.measurements.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.measurements, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "Centigrade"
@@ -793,6 +833,20 @@ extension Centigrade_Measurement: SwiftProtobuf._MessageImplementationBase, Swif
       }
       if !storagesAreEqual {return false}
     }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension Centigrade_StationRecentMeasurements: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "uuid"),
+    2: .same(proto: "measurements"),
+  ]
+
+  public func _protobuf_generated_isEqualTo(other: Centigrade_StationRecentMeasurements) -> Bool {
+    if self.uuid != other.uuid {return false}
+    if self.measurements != other.measurements {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

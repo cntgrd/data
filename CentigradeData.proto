@@ -77,6 +77,11 @@ message Measurement {
     Sensor sensor = 10;
 }
 
+message StationRecentMeasurements {
+    string uuid = 1;
+    repeated Measurement measurements = 2;
+}
+
 /*
  * Authentication
  *

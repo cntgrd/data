@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A13B41102074212500C79190 /* CentigradeData.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B410F2074212500C79190 /* CentigradeData.pb.swift */; };
 		A13B41122074218D00C79190 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = A13B41112074218D00C79190 /* Cartfile */; };
 		A13B44FD20742E6300C79190 /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13B4114207422DB00C79190 /* SwiftProtobuf.framework */; };
+		A1C2FF6E2074320600161DCD /* CentigradeData.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C2FF6D2074320600161DCD /* CentigradeData.pb.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A13B4104207420F800C79190 /* CentigradeData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CentigradeData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A13B4108207420F900C79190 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A13B410F2074212500C79190 /* CentigradeData.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CentigradeData.pb.swift; path = ../../Sources/CentigradeData/CentigradeData.pb.swift; sourceTree = "<group>"; };
 		A13B41112074218D00C79190 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		A13B4114207422DB00C79190 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtobuf.framework; path = Carthage/Build/iOS/SwiftProtobuf.framework; sourceTree = "<group>"; };
+		A1C2FF6D2074320600161DCD /* CentigradeData.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CentigradeData.pb.swift; path = Sources/CentigradeData/CentigradeData.pb.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +52,7 @@
 		A13B4106207420F800C79190 /* CentigradeData */ = {
 			isa = PBXGroup;
 			children = (
-				A13B410F2074212500C79190 /* CentigradeData.pb.swift */,
+				A1C2FF6D2074320600161DCD /* CentigradeData.pb.swift */,
 				A13B4108207420F900C79190 /* Info.plist */,
 				A13B41112074218D00C79190 /* Cartfile */,
 			);
@@ -146,7 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A13B41102074212500C79190 /* CentigradeData.pb.swift in Sources */,
+				A1C2FF6E2074320600161DCD /* CentigradeData.pb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

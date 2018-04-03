@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A13B41102074212500C79190 /* CentigradeData.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B410F2074212500C79190 /* CentigradeData.pb.swift */; };
 		A13B41122074218D00C79190 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = A13B41112074218D00C79190 /* Cartfile */; };
+		A13B44FD20742E6300C79190 /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13B4114207422DB00C79190 /* SwiftProtobuf.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A13B44FD20742E6300C79190 /* SwiftProtobuf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +88,6 @@
 				A13B4100207420F800C79190 /* Frameworks */,
 				A13B4101207420F800C79190 /* Headers */,
 				A13B4102207420F800C79190 /* Resources */,
-				A13B41162074231000C79190 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -139,24 +140,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		A13B41162074231000C79190 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftProtobuf.framework",
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftProtobuf.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks ";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A13B40FF207420F800C79190 /* Sources */ = {

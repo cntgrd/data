@@ -44,18 +44,19 @@ message Radians {
     double value = 1;    
 }
 
+enum SensorType {
+    DEFAULT = 0;    
+    ALTITUDE = 1;
+    ANEMOMETER = 2;
+    EQUIVALENT_CO2 = 3;
+    HUMIDITY = 4;
+    PRESSURE = 5;
+    TEMPERATURE = 6;
+    TOTAL_VOC = 7;
+}
+
 message Sensor {
     string uuid = 1;    
-    enum SensorType {
-        DEFAULT = 0;    
-        ALTITUDE = 1;
-        ANEMOMETER = 2;
-        EQUIVALENT_CO2 = 3;
-        HUMIDITY = 4;
-        PRESSURE = 5;
-        TEMPERATURE = 6;
-        TOTAL_VOC = 7;
-    }
     repeated SensorType sensor_type = 2;
 }
 
@@ -75,6 +76,7 @@ message Measurement {
         Radians wind_direction = 9;
     }
     Sensor sensor = 10;
+    SensorType sensorRole = 11;
 }
 
 message StationRecentMeasurements {

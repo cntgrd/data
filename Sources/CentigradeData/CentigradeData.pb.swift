@@ -23,6 +23,52 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
+public enum Centigrade_SensorType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
+  case `default` // = 0
+  case altitude // = 1
+  case anemometer // = 2
+  case equivalentCo2 // = 3
+  case humidity // = 4
+  case pressure // = 5
+  case temperature // = 6
+  case totalVoc // = 7
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .default
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .default
+    case 1: self = .altitude
+    case 2: self = .anemometer
+    case 3: self = .equivalentCo2
+    case 4: self = .humidity
+    case 5: self = .pressure
+    case 6: self = .temperature
+    case 7: self = .totalVoc
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .default: return 0
+    case .altitude: return 1
+    case .anemometer: return 2
+    case .equivalentCo2: return 3
+    case .humidity: return 4
+    case .pressure: return 5
+    case .temperature: return 6
+    case .totalVoc: return 7
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+}
+
 public struct Centigrade_Celsius {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -126,55 +172,9 @@ public struct Centigrade_Sensor {
 
   public var uuid: String = String()
 
-  public var sensorType: [Centigrade_Sensor.SensorType] = []
+  public var sensorType: [Centigrade_SensorType] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public enum SensorType: SwiftProtobuf.Enum {
-    public typealias RawValue = Int
-    case `default` // = 0
-    case altitude // = 1
-    case anemometer // = 2
-    case equivalentCo2 // = 3
-    case humidity // = 4
-    case pressure // = 5
-    case temperature // = 6
-    case totalVoc // = 7
-    case UNRECOGNIZED(Int)
-
-    public init() {
-      self = .default
-    }
-
-    public init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .default
-      case 1: self = .altitude
-      case 2: self = .anemometer
-      case 3: self = .equivalentCo2
-      case 4: self = .humidity
-      case 5: self = .pressure
-      case 6: self = .temperature
-      case 7: self = .totalVoc
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    public var rawValue: Int {
-      switch self {
-      case .default: return 0
-      case .altitude: return 1
-      case .anemometer: return 2
-      case .equivalentCo2: return 3
-      case .humidity: return 4
-      case .pressure: return 5
-      case .temperature: return 6
-      case .totalVoc: return 7
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-  }
 
   public init() {}
 }
@@ -269,6 +269,11 @@ public struct Centigrade_Measurement {
   /// Clears the value of `sensor`. Subsequent reads from it will return its default value.
   public mutating func clearSensor() {_storage._sensor = nil}
 
+  public var sensorRole: Centigrade_SensorType {
+    get {return _storage._sensorRole}
+    set {_uniqueStorage()._sensorRole = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public enum OneOf_Measurement: Equatable {
@@ -318,6 +323,19 @@ public struct Centigrade_StationRecentMeasurements {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "Centigrade"
+
+extension Centigrade_SensorType: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "DEFAULT"),
+    1: .same(proto: "ALTITUDE"),
+    2: .same(proto: "ANEMOMETER"),
+    3: .same(proto: "EQUIVALENT_CO2"),
+    4: .same(proto: "HUMIDITY"),
+    5: .same(proto: "PRESSURE"),
+    6: .same(proto: "TEMPERATURE"),
+    7: .same(proto: "TOTAL_VOC"),
+  ]
+}
 
 extension Centigrade_Celsius: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Celsius"
@@ -586,19 +604,6 @@ extension Centigrade_Sensor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
   }
 }
 
-extension Centigrade_Sensor.SensorType: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "DEFAULT"),
-    1: .same(proto: "ALTITUDE"),
-    2: .same(proto: "ANEMOMETER"),
-    3: .same(proto: "EQUIVALENT_CO2"),
-    4: .same(proto: "HUMIDITY"),
-    5: .same(proto: "PRESSURE"),
-    6: .same(proto: "TEMPERATURE"),
-    7: .same(proto: "TOTAL_VOC"),
-  ]
-}
-
 extension Centigrade_Measurement: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Measurement"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -612,12 +617,14 @@ extension Centigrade_Measurement: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     8: .same(proto: "humidity"),
     9: .standard(proto: "wind_direction"),
     10: .same(proto: "sensor"),
+    11: .same(proto: "sensorRole"),
   ]
 
   fileprivate class _StorageClass {
     var _time: UInt64 = 0
     var _measurement: Centigrade_Measurement.OneOf_Measurement?
     var _sensor: Centigrade_Sensor? = nil
+    var _sensorRole: Centigrade_SensorType = .default
 
     static let defaultInstance = _StorageClass()
 
@@ -627,6 +634,7 @@ extension Centigrade_Measurement: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       _time = source._time
       _measurement = source._measurement
       _sensor = source._sensor
+      _sensorRole = source._sensorRole
     }
   }
 
@@ -708,6 +716,7 @@ extension Centigrade_Measurement: SwiftProtobuf.Message, SwiftProtobuf._MessageI
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._measurement = .windDirection(v)}
         case 10: try decoder.decodeSingularMessageField(value: &_storage._sensor)
+        case 11: try decoder.decodeSingularEnumField(value: &_storage._sensorRole)
         default: break
         }
       }
@@ -741,6 +750,9 @@ extension Centigrade_Measurement: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       if let v = _storage._sensor {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
       }
+      if _storage._sensorRole != .default {
+        try visitor.visitSingularEnumField(value: _storage._sensorRole, fieldNumber: 11)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -753,6 +765,7 @@ extension Centigrade_Measurement: SwiftProtobuf.Message, SwiftProtobuf._MessageI
         if _storage._time != other_storage._time {return false}
         if _storage._measurement != other_storage._measurement {return false}
         if _storage._sensor != other_storage._sensor {return false}
+        if _storage._sensorRole != other_storage._sensorRole {return false}
         return true
       }
       if !storagesAreEqual {return false}
